@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <title></title>
+
+
+  <script src="fancytree/lib/jquery.js" type="text/javascript"></script>
+  <script src="fancytree/lib/jquery-ui.custom.js" type="text/javascript"></script>
+
+  <link href="fancytree/src/skin-win8/ui.fancytree.css" rel="stylesheet" type="text/css">
+  <script src="fancytree/src/jquery.fancytree.js" type="text/javascript"></script>
+  <script src="fancytree/demo/sample.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+  $(function(){
+    // --- Initialize sample trees
+    $("#tree").fancytree({
+      autoActivate: false, // we use scheduleAction()
+      autoCollapse: true,
+  //      autoFocus: true,
+      autoScroll: true,
+      clickFolderMode: 3, // expand with single click
+      minExpandLevel: 2,
+      tabbable: false, // we don't want the focus frame
+      // scrollParent: null, // use $container
+      focus: function(event, data) {
+        var node = data.node;
+        // Auto-activate focused node after 1 second
+        if(node.data.href){
+          node.scheduleAction("activate", 1000);
+        }
+      },
+      blur: function(event, data) {
+        data.node.scheduleAction("cancel");
+      },
+      activate: function(event, data){
+        var node = data.node,
+          orgEvent = data.originalEvent || {};
+
+        if(node.data.href){
+          window.open(node.data.href, (orgEvent.ctrlKey || orgEvent.metaKey) ? "_blank" : node.data.target);
+        }
+        if( window.parent &&  parent.history && parent.history.pushState ) {
+          // Add #HREF to URL without actually loading content
+          parent.history.pushState({title: node.title}, "", "#" + (node.data.href || ""));
+        }
+      },
+      click: function(event, data){ // allow re-loads
+        var node = data.node,
+          orgEvent = data.originalEvent;
+
+        if(node.isActive() && node.data.href){
+          // data.tree.reactivate();
+          window.open(node.data.href, (orgEvent.ctrlKey || orgEvent.metaKey) ? "_blank" : node.data.target);
+        }
+      }
+    });
+    // On page load, activate node if node.data.href matches the url#href
+    var tree = $(":ui-fancytree").fancytree("getTree"),
+      frameHash = window.parent && window.parent.location.hash;
+
+    if( frameHash ) {
+      frameHash = frameHash.replace("#", "");
+      tree.visit(function(n) {
+        if( n.data.href && n.data.href === frameHash ) {
+          n.setActive();
+          return false; // done: break traversal
+        }
+      });
+    }
+  });
+
+</script>
+
+
+
+
+
+
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+        <a class="navbar-brand" href="index.html">КСК-АУЕЗОВ</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="report.html">Документы</a></li>
+            <li><a href="index.html">Лента новостей</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+        </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav><!-- /.container-fluid -->
+
+  <div class="container" style="top: 75px; position: relative;">
+    <div class="col-md-12">
+        <h1 class="page-header text-center">
+            Документы
+        </h1>
+    </div>
+    <div class="col-md-3">
+<script type="text/javascript">
+// var elems = document.getElementsByTagName('td'); 
+// for(i in elems) { 
+//   if(i%6 == 1) {
+//     // console.log(elems[i].innerHTML);
+//     console.log(elems[i].getElementsByTagName('p')[0].innerHTML);
+//   } 
+//   // if(i > 20) break;
+// }    
+</script>
+      <div id="tree">
+        <ul>
+        <li class="folder expanded">КСК Ауэзовского района
+          <ul>
+            <li class="folder">А
+              <ul>
+                <li class="folder">А-3/5
+                  <ul>
+                    <li><a target="content" href="report_info.html">Инфо</a>
+                    <li class="folder">Отчеты
+                      <ul>
+                        <li><a target="content" href="report_view.html">Квартал-1</a>
+                        <li><a target="content" href="report_view.html">Квартал-2</a>
+                        <li><a target="content" href="report_view.html">Квартал-3</a>
+                      </ul>
+                  </ul>
+                <li><a target="content" href="report_view.html"><span lang="KZ">Аврора</span></a>
+                <li><a target="content" href="report_view.html">Автомобилист</a>
+                <li><a target="content" href="report_view.html">Адал</a>
+                <li><a target="content" href="report_view.html"><span lang="KZ">Адал-3</span></a>
+                <li><a target="content" href="report_view.html">Азамат</a>
+                <li><a target="content" href="report_view.html">Азан</a>
+                <li><a target="content" href="report_view.html">Айман</a>
+                <li><a target="content" href="report_view.html">Айя</a>
+                <li><a target="content" href="report_view.html">Академия</a>
+                <li><a target="content" href="report_view.html">Аксай-3 а</a>
+                <li><a target="content" href="report_view.html">Аксай-3 б</a>
+                <li><a target="content" href="report_view.html">Аксай-Монолит</a>
+                <li><a target="content" href="report_view.html">Аксай-4</a>
+                <li><a target="content" href="report_view.html">Аксай-</a>
+                <li><a target="content" href="report_view.html">Аксу</a>
+                <li><a target="content" href="report_view.html">Алем</a>
+                <li><a target="content" href="report_view.html">Алия</a>
+                <li><a target="content" href="report_view.html">Алма</a>
+                <li><a target="content" href="report_view.html">Алма-Ата</a>
+                <li><a target="content" href="report_view.html">Алмаз</a>
+                <li><a target="content" href="report_view.html">Алмас</a>
+                <li><a target="content" href="report_view.html">Алуа</a>
+                <li><a target="content" href="report_view.html">Арай</a>
+                <li><a target="content" href="report_view.html">Арай-12</a>
+                <li><a target="content" href="report_view.html">Арай</a>
+                <li><a target="content" href="report_view.html">Арман</a>
+                <li><a target="content" href="report_view.html">Арна</a>
+                <li><a target="content" href="report_view.html">Асель</a>
+                <li><a target="content" href="report_view.html">Аспан</a>
+                <li><a target="content" href="report_view.html">Астра</a>
+                <li><a target="content" href="report_view.html"><span lang="KZ">Айя</span></a>
+                <li><a target="content" href="report_view.html">Астра</a>
+              </ul>
+            <li class="folder">Б
+              <ul>
+                <li><a target="content" href="">Байкал</a>
+                <li><a target="content" href="">Байторы</a>
+                <li><a target="content" href="">Батыр</a>
+                <li><a target="content" href="">Бахыт</a>
+                <li><a target="content" href="">Бектур</a>
+                <li><a target="content" href="">Берёзка</a>
+                <li><a target="content" href="">Беркут</a>
+                <li><a target="content" href="">Береке<span lang="KZ">-Лейла</span></a>
+                <li><a target="content" href="">Бирлик Калкаман</a>
+                <li><a target="content" href="">Болат</a>
+                <li><a target="content" href="">Балашак</a>
+                <li><a target="content" href="">Бояулы</a>
+                <li><a target="content" href="">Буревестник</a>
+              </ul>
+            <li class="folder">В
+              <ul>
+                <li><a target="content" href="">Вега-Жулдыз</a>
+                <li><a target="content" href="">Венера</a>
+                <li><a target="content" href="">Верный</a>
+                <li><a target="content" href="">Весна</a>
+                <li><a target="content" href="">Волна</a>
+                <li><a target="content" href="">Восход</a>
+                <li><a target="content" href="">Восход-2</a>
+                <li><a target="content" href="">Вымпел</a>
+              </ul>
+            <li class="folder">Г
+              <ul>
+                <li><a target="content" href="">Галактика</a>
+                <li><a target="content" href="">Геологичес</a>
+              </ul>
+            <li class="folder">Д
+              <ul>
+                <li><a target="content" href="">Даркем Мкр. Аксай-2,</a>
+                <li><a target="content" href="">Дастан</a>
+                <li><a target="content" href="">Даурен</a>
+                <li><a target="content" href="">Даулет</a>
+                <li><a target="content" href="">Дидар</a>
+                <li><a target="content" href="">Дом</a>
+                <li><a target="content" href="">Дом-5</a>
+                <li><a target="content" href="">Домостройтельная-2</a>
+                <li><a target="content" href="">Домострой</a>
+                <li><a target="content" href="">Доверие</a>
+                <li><a target="content" href="">Достык</a>
+                <li><a target="content" href="">Дружба</a>
+                <li><a target="content" href="">Дубок</a>
+              </ul>
+            <li class="folder">Е
+              <ul>
+                <li><a target="content" href="">Енлик</a>
+              </ul>
+            <li class="folder">Ж
+              <ul>
+                <li><a target="content" href="">Жаннат</a>
+                <li><a target="content" href="">Жансая</a>
+                <li><a target="content" href="">ЖК «Жетысу <span lang="EN-US">KULTA-2</span>»</a>
+                <li><a target="content" href="">Жемчуг</a>
+                <li><a target="content" href="">Жетысу</a>
+                <li><a target="content" href="">Жетысу-2</a>
+                <li><a target="content" href="">Жетысу-24</a>
+                <li><a target="content" href=""><span lang="KZ">Жолдастар</span></a>
+                <li><a target="content" href=""><span lang="KZ">Жулдыз-16</span></a>
+                <li><a target="content" href="">Жулдыз-19</a>
+              </ul>
+            <li class="folder">З
+              <ul>
+                <li><a target="content" href="">Забота</a>
+                <li><a target="content" href="">Западный&nbsp;</a>
+                <li><a target="content" href="">Заря</a>
+                <li><a target="content" href="">&nbsp;Знамя</a>
+                <li><a target="content" href="">Звёздочка</a>
+              </ul>
+            <li class="folder">И
+              <ul>
+                <li><a target="content" href=""><span lang="KZ">Исмер</span></a>
+              </ul>
+            <li class="folder">К
+              <ul>
+                <li><a target="content" href=""><span lang="KZ">КААС</span></a>
+                <li><a target="content" href="">Кайрат</a>
+                <li><a target="content" href="">Калкаман</a>
+                <li><a target="content" href="">Ка<span lang="KZ">ратал</span></a>
+                <li><a target="content" href="">Каргалы</a>
+                <li><a target="content" href="">Кереге</a>
+                <li><a target="content" href="">Кок-Жиек</a>
+                <li><a target="content" href="">Колос</a>
+                <li><a target="content" href="">Корган</a>
+                <li><a target="content" href="">Космос</a>
+                <li><a target="content" href="">Куаныш</a>
+              </ul>
+            <li class="folder">Л
+              <ul>
+                <li><a target="content" href="">Лейла</a>
+                <li><a target="content" href="">ЖК <span lang="KZ">Лотос</span></a>
+                <li><a target="content" href="">Лидер-1</a>
+                <li><a target="content" href="">ЖСК Лотос</a>
+                <li><a target="content" href="">Луч</a>
+              </ul>
+            <li class="folder">М
+              <ul>
+                <li><a target="content" href="">Максат</a>
+                <li><a target="content" href="">Мамыр</a>
+                <li><a target="content" href="">Мамыр-7</a>
+                <li><a target="content" href="">ЖК Марат</a>
+                <li><a target="content" href="">Маржан</a>
+                <li><a target="content" href="">Мариза</a>
+                <li><a target="content" href="">Марс Мкр. 5, д. 17,</a>
+                <li><a target="content" href="">Машиностроитель</a>
+                <li><a target="content" href="">Медработник</a>
+                <li><a target="content" href="">Медик</a>
+                <li><a target="content" href="">Мейрам</a>
+                <li><a target="content" href="">Мекен – жай</a>
+                <li><a target="content" href="">Мейрам</a>
+                <li><a target="content" href="">Мерей</a>
+                <li><a target="content" href="">Мерей-2</a>
+                <li><a target="content" href="">Мереке</a>
+                <li><a target="content" href="">Меруерт</a>
+                <li><a target="content" href="">Мечта</a>
+                <li><a target="content" href="">Мир</a>
+                <li><a target="content" href="">Молодость</a>
+                <li><a target="content" href="">Монтажник</a>
+              </ul>
+            <li class="folder">Н
+              <ul>
+                <li><a target="content" href="">Надежда</a>
+                <li><a target="content" href="">Наурыз</a>
+                <li><a target="content" href="">Наурыз-2</a>
+                <li><a target="content" href="">Научный-1</a>
+                <li><a target="content" href=""><span lang="KZ">Нурлан</span></a>
+              </ul>
+            <li class="folder">О
+              <ul>
+                <li><a target="content" href="">Огонёк</a>
+                <li><a target="content" href="">Орда</a>
+                <li><a target="content" href="">Октябрь</a>
+                <li><a target="content" href="">Отау</a>
+              </ul>
+            <li class="folder">П
+              <ul>
+                <li><a target="content" href="">Первомайский&nbsp;</a>
+                <li><a target="content" href="">Перспекти</a>
+                <li><a target="content" href="">Победа</a>
+                <li><a target="content" href=""><span lang="EN-US">XX</span> Победы</a>
+                <li><a target="content" href="">Правда</a>
+                <li><a target="content" href="">Престиж 7</a>
+                <li><a target="content" href="">Прогресс</a>
+                <li><a target="content" href="">Прометей</a>
+              </ul>
+            <li class="folder">Р
+              <ul>
+                <li><a target="content" href="">Радуга</a>
+                <li><a target="content" href="">Ракета</a>
+                <li><a target="content" href="">Раушан</a>
+                <li><a target="content" href="">Рахат-12</a>
+                <li><a target="content" href="">Романти<span lang="KZ">ка</span></a>
+              </ul>
+            <li class="folder">С
+              <ul>
+                <li><a target="content" href="">С/хоз/ва</a>
+                <li><a target="content" href="">Сайран</a>
+                <li><a target="content" href="">Сайран-2</a>
+                <li><a target="content" href="">Салют</a>
+                <li><a target="content" href="">Сары-Арка</a>
+                <li><a target="content" href="">Сатурн</a>
+                <li><a target="content" href="">Сауле</a>
+                <li><a target="content" href="">Саулет</a>
+                <li><a target="content" href="">ПК «Свет и тепло»</a>
+                <li><a target="content" href="">Север</a>
+                <li><a target="content" href="">Сеним</a>
+                <li><a target="content" href="">Семиречье</a>
+                <li><a target="content" href="">Солнышко</a>
+                <li><a target="content" href="">Максат</a>
+                <li><a target="content" href="">Согласие</a>
+                <li><a target="content" href="">Содружест<span lang="KZ">в</span>о</a>
+                <li><a target="content" href="">Сокол</a>
+                <li><a target="content" href="">Сплав</a>
+                <li><a target="content" href="">Спутник</a>
+                <li><a target="content" href="">Сымбат</a>
+              </ul>
+            <li class="folder">Т
+              <ul>
+                <li><a target="content" href="">Таган</a>
+                <li><a target="content" href="">Тастак-1-Пуск</a>
+                <li><a target="content" href="">Таугуль</a>
+                <li><a target="content" href="">Таугуль-3</a>
+                <li><a target="content" href="">Текстиль</a>
+                <li><a target="content" href="">Титан</a>
+                <li><a target="content" href="">Токаш</a>
+                <li><a target="content" href="">Турмыс</a>
+                <li><a target="content" href="">ТОО Турмыс- Лимитед</a>
+                <li><a target="content" href="">Тянь-Шань</a>
+                <li><a target="content" href="">Тюльпан</a>
+              </ul>
+            <li class="folder">У
+              <ul>
+                <li><a target="content" href="">Улан</a>
+                <li><a target="content" href="">Улан-96</a>
+                <li><a target="content" href="">Упр.</a>
+                <li><a target="content" href="">Уют-28</a>
+              </ul>
+            <li class="folder">Ф
+              <ul>
+                <li><a target="content" href="">Факел</a>
+              </ul>
+            <li class="folder">Ч
+              <ul>
+                <li><a target="content" href="">Чайка</a>
+              </ul>
+            <li class="folder">Ш
+              <ul>
+                <li><a target="content" href="">Школьник</a>
+              </ul>
+            <li class="folder">Э
+              <ul>
+                <li><a target="content" href="">Эдельвейс &nbsp;Мкр. 8, д. 17</a>
+                <li><a target="content" href="">Электро</a>
+                <li><a target="content" href="">Электрон</a>
+              </ul>
+            <li class="folder">Ю
+              <ul>
+                <li><a target="content" href="">Юпитер</a>
+              </ul>
+            <li class="folder">Общ
+              <ul>
+                <li><a target="content" href="">Общ. «АЗТМ»</a>
+                <li><a target="content" href="">Общ.«Казмеханобр» университет Донирели</a>
+                <li><a target="content" href="">Общ. Кол. Сер. Гр.</a>
+                <li><a target="content" href="">Общ. Колледж Сервиса</a>
+              </ul>
+            <li class="folder">Остальные
+              <ul>
+                <li><a target="content" href="">ТОО «Каргалы»</a>
+                <li><a target="content" href="">«Позибив»</a>
+                <li><a target="content" href="">ПК Рауан</a>
+                <li><a target="content" href="">ЖК «Виктория»</a>
+              <ul>
+          </ul>
+        <li class="folder expanded"> Examples
+          <ul>
+            <li><a target="content" href="welcome.html">Welcome</a>
+            <li><a target="content" href="sample-default.html">Default options</a>
+            <li><a target="content" href="sample-multi-ext.html">Complex demo</a>
+            <li><a target="content" href="sample-ext-bootstrap.html">Bootstrap</a>
+            <li><a target="content" href="sample-source.html">Initialization</a>
+            <li><a target="content" href="sample-events.html">Event handling</a>
+            <li><a target="content" href="sample-configurator.html">Option configurator</a>
+            <li><a target="content" href="sample-iframe.html">URL navigation and &lt;iframe></a>
+            <li><a target="content" href="sample-api.html">Programming API</a>
+            <li><a target="content" href="sample-select.html">Checkbox &amp; select</a>
+            <li><a target="content" href="sample-theming.html">Theming</a>
+            <li><a target="content" href="sample-form.html">Embed in forms</a>
+            <li class="external"><a target="_blank" href="http://wwwendt.de/tech/fancytree/demo/taxonomy-browser/">Taxonomy Browser</a>
+            <li class="folder">Extensions
+              <ul>
+              <li><a target="content" href="sample-ext-childcounter.html">Child counter</a>
+              <li><a target="content" href="sample-ext-columnview.html">Column view</a>
+              <li><a target="content" href="sample-ext-menu.html">Context menu</a>
+              <li><a target="content" href="sample-ext-dnd.html">Drag'n'drop</a>
+              <li><a target="content" href="sample-ext-filter.html">Filter</a>
+              <li><a target="content" href="sample-ext-bootstrap.html">Glyph fonts</a>
+              <li><a target="content" href="sample-ext-edit.html">Inline edit</a>
+              <li class="external"><a target="_blank" href="sample-ext-persist.html">Persist</a>
+              <li><a target="content" href="sample-ext-table.html">Table</a>
+              <li><a target="content" href="sample-ext-themeroller.html">ThemeRoller</a>
+              <li><a target="content" href="sample-ext-wide.html">Wide</a>
+              </ul>
+            <li class="folder">Tweaks
+              <ul>
+              <li><a target="content" href="sample-accordion.html">Accordion</a>
+              <li><a target="content" href="sample-3rd-ui-contextmenu.html">ui-contextmenu</a>
+              <li><a target="content" href="sample-3rd-contextmenu-abs.html">Context menu (ABS), Copy/paste</a>
+              <li><a target="content" href="sample-ext-awesome.html">font-awesome</a>
+              <li><a target="content" href="sample-load-errors.html">Lazy load errors handling</a>
+              <li><a target="content" href="sample-rtl.html">RTL</a>
+              <li><a target="content" href="sample-form.html">Embed in forms</a>
+              <li><a target="content" href="sample-multiline.html">Large nodes</a>
+              <li><a target="content" href="sample-multi-dnd.html">Drag multiple nodes</a>
+              <li><a target="content" href="sample-scroll.html">Smart scrolling</a>
+              <li><a target="content" href="sample-webservice.html">Webservice</a>
+              <li><a target="content" href="../test/test-ext-keyboard.html">Keyboard nav.</a>
+              </ul>
+            <li class="folder">Test
+              <ul>
+              <li class="external"><a target="_blank" href="../test/unit/test-core.html">Core unit tests</a>
+              <li class="external"><a target="_blank" href="../test/unit/test-suite.html">Suite</a>
+              <li><a target="content" href="../test/test-ext-dnd.html">Drag'n'drop</a>
+              <li class="external"><a target="_blank" href="../test/unit/test-bench.html">Benchmarks</a>
+
+              <li class="folder">DTD
+                <ul>
+                <li><a target="content" href="../test/doctypes/doctype-none.html">No DTD</a>
+                <li><a target="content" href="../test/doctypes/doctype-html4-loose.html">HTML4 transitional</a>
+                <li><a target="content" href="../test/doctypes/doctype-html4-strict.html">HTML4 strict</a>
+                <li><a target="content" href="../test/doctypes/doctype-html5.html">HTML5</a>
+                <li><a target="content" href="../test/doctypes/doctype-xml-transitional.html">XHTML transitional</a>
+                <li><a target="content" href="../test/doctypes/doctype-xml-strict.html">XHTML strict</a>
+                </ul>
+              </ul>
+          </ul>
+          <li class="folder expanded">3rd party
+          <ul>
+            <li class="folder">Extensions
+            <ul>
+              <li><a target="content" href="../3rd-party/extensions/contextmenu/contextmenu.html">contextMenu</a>
+              <li><a target="content" href="../3rd-party/extensions/hotkeys/hotkeys.html">hotkeys</a>
+            </ul>
+            <li class="folder">Samples
+            <ul>
+              <li><a target="content" href="sample-3rd-ui-contextmenu.html">ui-contextmenu</a>
+            </ul>
+          </ul>
+        </ul>
+      </div>        
+    </div>
+    <div class="col-md-9">
+      <div class="well">...</div>
+    </div>
+  </div>
+
+  <div style="height:1000px"></div>
+
+</body>
+</html>
