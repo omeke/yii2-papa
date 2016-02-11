@@ -92,13 +92,13 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">КСК-АУЕЗОВ</a>
+        <a class="navbar-brand" href="index.html">РљРЎРљ-РђРЈР•Р—РћР’</a>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="report.html">Документы</a></li>
-            <li><a href="index.html">Лента новостей</a></li>
-            <li><a href="contact.html">Контакты</a></li>
+            <li><a href="report.html">Р”РѕРєСѓРјРµРЅС‚С‹</a></li>
+            <li><a href="index.html">Р›РµРЅС‚Р° РЅРѕРІРѕСЃС‚РµР№</a></li>
+            <li><a href="contact.html">РљРѕРЅС‚Р°РєС‚С‹</a></li>
         </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -107,305 +107,329 @@
   <div class="container" style="top: 75px; position: relative;">
     <div class="col-md-12">
         <h1 class="page-header text-center">
-            Документы
+            Р”РѕРєСѓРјРµРЅС‚С‹
         </h1>
     </div>
     <div class="col-md-3">
+      <!--[2, 'qwe', 2]-->
+      <!--[2, 'qaaaa', 5, 'sdjkjac', 'sdjkjac', 'sdjkjac', 1]-->
 <script type="text/javascript">
-// var elems = document.getElementsByTagName('td'); 
-// for(i in elems) { 
-//   if(i%6 == 1) {
-//     // console.log(elems[i].innerHTML);
+ var elems = document.getElementsByTagName('td');
+   var sub_elems;
+   var col;
+   var ans;
+   for(i in elems) {
+     if(i%6 == 5) {
+       ans = '[' + Math.floor(i/6) + ', ';
+     for (var j = 4; j >= 0; -- j) {
+       sub_elems = elems[i-j].getElementsByTagName('p');
+       col = '';
+       if (sub_elems.length > 0) {
+         for (var k = 0; k < sub_elems.length; ++ k) {
+           if (k > 0) col += ', ';
+           col += sub_elems[k].innerText;
+         }
+       } else {
+         col = elems[i-j].innerText;
+       }
+         ans += '\''+col+'\', ';
+     }
+     ans += Math.floor(i/6) + ']';
+//      console.log(elems[i].innerHTML);
 //     console.log(elems[i].getElementsByTagName('p')[0].innerHTML);
-//   } 
-//   // if(i > 20) break;
-// }    
+//     console.log('[' + Math.floor(i/6) + ', \'' + elems[i].innerHTML + '\', 2]');
+//     console.log('[' + Math.floor(i/6) + ', \'' + elems[i-4].innerHTML + '\', \'' + elems[i-3].innerHTML + '\',\'' + elems[i-2].innerHTML + '\',\'' + elems[i-1].innerHTML + '\',\'' + elems[i].innerHTML + '\', ');
+     console.log(ans+',');
+   }
+//   if(i > 20) break;
+ }
+ document.getElementsByTagName('td').getElementsByTagName('p').length
 </script>
       <div id="tree">
         <ul>
-        <li class="folder expanded">КСК Ауэзовского района
+        <li class="folder expanded">РљРЎРљ РђСѓСЌР·РѕРІСЃРєРѕРіРѕ СЂР°Р№РѕРЅР°
           <ul>
-            <li class="folder">А
+            <li class="folder">Рђ
               <ul>
-                <li class="folder">А-3/5
+                <li class="folder">Рђ-3/5
                   <ul>
-                    <li><a target="content" href="report_info.html">Инфо</a>
-                    <li class="folder">Отчеты
+                    <li><a target="content" href="report_info.html">РРЅС„Рѕ</a>
+                    <li class="folder">РћС‚С‡РµС‚С‹
                       <ul>
-                        <li><a target="content" href="report_view.html">Квартал-1</a>
-                        <li><a target="content" href="report_view.html">Квартал-2</a>
-                        <li><a target="content" href="report_view.html">Квартал-3</a>
+                        <li><a target="content" href="report_view.html">РљРІР°СЂС‚Р°Р»-1</a>
+                        <li><a target="content" href="report_view.html">РљРІР°СЂС‚Р°Р»-2</a>
+                        <li><a target="content" href="report_view.html">РљРІР°СЂС‚Р°Р»-3</a>
                       </ul>
                   </ul>
-                <li><a target="content" href="report_view.html"><span lang="KZ">Аврора</span></a>
-                <li><a target="content" href="report_view.html">Автомобилист</a>
-                <li><a target="content" href="report_view.html">Адал</a>
-                <li><a target="content" href="report_view.html"><span lang="KZ">Адал-3</span></a>
-                <li><a target="content" href="report_view.html">Азамат</a>
-                <li><a target="content" href="report_view.html">Азан</a>
-                <li><a target="content" href="report_view.html">Айман</a>
-                <li><a target="content" href="report_view.html">Айя</a>
-                <li><a target="content" href="report_view.html">Академия</a>
-                <li><a target="content" href="report_view.html">Аксай-3 а</a>
-                <li><a target="content" href="report_view.html">Аксай-3 б</a>
-                <li><a target="content" href="report_view.html">Аксай-Монолит</a>
-                <li><a target="content" href="report_view.html">Аксай-4</a>
-                <li><a target="content" href="report_view.html">Аксай-</a>
-                <li><a target="content" href="report_view.html">Аксу</a>
-                <li><a target="content" href="report_view.html">Алем</a>
-                <li><a target="content" href="report_view.html">Алия</a>
-                <li><a target="content" href="report_view.html">Алма</a>
-                <li><a target="content" href="report_view.html">Алма-Ата</a>
-                <li><a target="content" href="report_view.html">Алмаз</a>
-                <li><a target="content" href="report_view.html">Алмас</a>
-                <li><a target="content" href="report_view.html">Алуа</a>
-                <li><a target="content" href="report_view.html">Арай</a>
-                <li><a target="content" href="report_view.html">Арай-12</a>
-                <li><a target="content" href="report_view.html">Арай</a>
-                <li><a target="content" href="report_view.html">Арман</a>
-                <li><a target="content" href="report_view.html">Арна</a>
-                <li><a target="content" href="report_view.html">Асель</a>
-                <li><a target="content" href="report_view.html">Аспан</a>
-                <li><a target="content" href="report_view.html">Астра</a>
-                <li><a target="content" href="report_view.html"><span lang="KZ">Айя</span></a>
-                <li><a target="content" href="report_view.html">Астра</a>
+                <li><a target="content" href="report_view.html"><span lang="KZ">РђРІСЂРѕСЂР°</span></a>
+                <li><a target="content" href="report_view.html">РђРІС‚РѕРјРѕР±РёР»РёСЃС‚</a>
+                <li><a target="content" href="report_view.html">РђРґР°Р»</a>
+                <li><a target="content" href="report_view.html"><span lang="KZ">РђРґР°Р»-3</span></a>
+                <li><a target="content" href="report_view.html">РђР·Р°РјР°С‚</a>
+                <li><a target="content" href="report_view.html">РђР·Р°РЅ</a>
+                <li><a target="content" href="report_view.html">РђР№РјР°РЅ</a>
+                <li><a target="content" href="report_view.html">РђР№СЏ</a>
+                <li><a target="content" href="report_view.html">РђРєР°РґРµРјРёСЏ</a>
+                <li><a target="content" href="report_view.html">РђРєСЃР°Р№-3 Р°</a>
+                <li><a target="content" href="report_view.html">РђРєСЃР°Р№-3 Р±</a>
+                <li><a target="content" href="report_view.html">РђРєСЃР°Р№-РњРѕРЅРѕР»РёС‚</a>
+                <li><a target="content" href="report_view.html">РђРєСЃР°Р№-4</a>
+                <li><a target="content" href="report_view.html">РђРєСЃР°Р№-</a>
+                <li><a target="content" href="report_view.html">РђРєСЃСѓ</a>
+                <li><a target="content" href="report_view.html">РђР»РµРј</a>
+                <li><a target="content" href="report_view.html">РђР»РёСЏ</a>
+                <li><a target="content" href="report_view.html">РђР»РјР°</a>
+                <li><a target="content" href="report_view.html">РђР»РјР°-РђС‚Р°</a>
+                <li><a target="content" href="report_view.html">РђР»РјР°Р·</a>
+                <li><a target="content" href="report_view.html">РђР»РјР°СЃ</a>
+                <li><a target="content" href="report_view.html">РђР»СѓР°</a>
+                <li><a target="content" href="report_view.html">РђСЂР°Р№</a>
+                <li><a target="content" href="report_view.html">РђСЂР°Р№-12</a>
+                <li><a target="content" href="report_view.html">РђСЂР°Р№</a>
+                <li><a target="content" href="report_view.html">РђСЂРјР°РЅ</a>
+                <li><a target="content" href="report_view.html">РђСЂРЅР°</a>
+                <li><a target="content" href="report_view.html">РђСЃРµР»СЊ</a>
+                <li><a target="content" href="report_view.html">РђСЃРїР°РЅ</a>
+                <li><a target="content" href="report_view.html">РђСЃС‚СЂР°</a>
+                <li><a target="content" href="report_view.html"><span lang="KZ">РђР№СЏ</span></a>
+                <li><a target="content" href="report_view.html">РђСЃС‚СЂР°</a>
               </ul>
-            <li class="folder">Б
+            <li class="folder">Р‘
               <ul>
-                <li><a target="content" href="">Байкал</a>
-                <li><a target="content" href="">Байторы</a>
-                <li><a target="content" href="">Батыр</a>
-                <li><a target="content" href="">Бахыт</a>
-                <li><a target="content" href="">Бектур</a>
-                <li><a target="content" href="">Берёзка</a>
-                <li><a target="content" href="">Беркут</a>
-                <li><a target="content" href="">Береке<span lang="KZ">-Лейла</span></a>
-                <li><a target="content" href="">Бирлик Калкаман</a>
-                <li><a target="content" href="">Болат</a>
-                <li><a target="content" href="">Балашак</a>
-                <li><a target="content" href="">Бояулы</a>
-                <li><a target="content" href="">Буревестник</a>
+                <li><a target="content" href="">Р‘Р°Р№РєР°Р»</a>
+                <li><a target="content" href="">Р‘Р°Р№С‚РѕСЂС‹</a>
+                <li><a target="content" href="">Р‘Р°С‚С‹СЂ</a>
+                <li><a target="content" href="">Р‘Р°С…С‹С‚</a>
+                <li><a target="content" href="">Р‘РµРєС‚СѓСЂ</a>
+                <li><a target="content" href="">Р‘РµСЂС‘Р·РєР°</a>
+                <li><a target="content" href="">Р‘РµСЂРєСѓС‚</a>
+                <li><a target="content" href="">Р‘РµСЂРµРєРµ<span lang="KZ">-Р›РµР№Р»Р°</span></a>
+                <li><a target="content" href="">Р‘РёСЂР»РёРє РљР°Р»РєР°РјР°РЅ</a>
+                <li><a target="content" href="">Р‘РѕР»Р°С‚</a>
+                <li><a target="content" href="">Р‘Р°Р»Р°С€Р°Рє</a>
+                <li><a target="content" href="">Р‘РѕСЏСѓР»С‹</a>
+                <li><a target="content" href="">Р‘СѓСЂРµРІРµСЃС‚РЅРёРє</a>
               </ul>
-            <li class="folder">В
+            <li class="folder">Р’
               <ul>
-                <li><a target="content" href="">Вега-Жулдыз</a>
-                <li><a target="content" href="">Венера</a>
-                <li><a target="content" href="">Верный</a>
-                <li><a target="content" href="">Весна</a>
-                <li><a target="content" href="">Волна</a>
-                <li><a target="content" href="">Восход</a>
-                <li><a target="content" href="">Восход-2</a>
-                <li><a target="content" href="">Вымпел</a>
+                <li><a target="content" href="">Р’РµРіР°-Р–СѓР»РґС‹Р·</a>
+                <li><a target="content" href="">Р’РµРЅРµСЂР°</a>
+                <li><a target="content" href="">Р’РµСЂРЅС‹Р№</a>
+                <li><a target="content" href="">Р’РµСЃРЅР°</a>
+                <li><a target="content" href="">Р’РѕР»РЅР°</a>
+                <li><a target="content" href="">Р’РѕСЃС…РѕРґ</a>
+                <li><a target="content" href="">Р’РѕСЃС…РѕРґ-2</a>
+                <li><a target="content" href="">Р’С‹РјРїРµР»</a>
               </ul>
-            <li class="folder">Г
+            <li class="folder">Р“
               <ul>
-                <li><a target="content" href="">Галактика</a>
-                <li><a target="content" href="">Геологичес</a>
+                <li><a target="content" href="">Р“Р°Р»Р°РєС‚РёРєР°</a>
+                <li><a target="content" href="">Р“РµРѕР»РѕРіРёС‡РµСЃ</a>
               </ul>
-            <li class="folder">Д
+            <li class="folder">Р”
               <ul>
-                <li><a target="content" href="">Даркем Мкр. Аксай-2,</a>
-                <li><a target="content" href="">Дастан</a>
-                <li><a target="content" href="">Даурен</a>
-                <li><a target="content" href="">Даулет</a>
-                <li><a target="content" href="">Дидар</a>
-                <li><a target="content" href="">Дом</a>
-                <li><a target="content" href="">Дом-5</a>
-                <li><a target="content" href="">Домостройтельная-2</a>
-                <li><a target="content" href="">Домострой</a>
-                <li><a target="content" href="">Доверие</a>
-                <li><a target="content" href="">Достык</a>
-                <li><a target="content" href="">Дружба</a>
-                <li><a target="content" href="">Дубок</a>
+                <li><a target="content" href="">Р”Р°СЂРєРµРј РњРєСЂ. РђРєСЃР°Р№-2,</a>
+                <li><a target="content" href="">Р”Р°СЃС‚Р°РЅ</a>
+                <li><a target="content" href="">Р”Р°СѓСЂРµРЅ</a>
+                <li><a target="content" href="">Р”Р°СѓР»РµС‚</a>
+                <li><a target="content" href="">Р”РёРґР°СЂ</a>
+                <li><a target="content" href="">Р”РѕРј</a>
+                <li><a target="content" href="">Р”РѕРј-5</a>
+                <li><a target="content" href="">Р”РѕРјРѕСЃС‚СЂРѕР№С‚РµР»СЊРЅР°СЏ-2</a>
+                <li><a target="content" href="">Р”РѕРјРѕСЃС‚СЂРѕР№</a>
+                <li><a target="content" href="">Р”РѕРІРµСЂРёРµ</a>
+                <li><a target="content" href="">Р”РѕСЃС‚С‹Рє</a>
+                <li><a target="content" href="">Р”СЂСѓР¶Р±Р°</a>
+                <li><a target="content" href="">Р”СѓР±РѕРє</a>
               </ul>
-            <li class="folder">Е
+            <li class="folder">Р•
               <ul>
-                <li><a target="content" href="">Енлик</a>
+                <li><a target="content" href="">Р•РЅР»РёРє</a>
               </ul>
-            <li class="folder">Ж
+            <li class="folder">Р–
               <ul>
-                <li><a target="content" href="">Жаннат</a>
-                <li><a target="content" href="">Жансая</a>
-                <li><a target="content" href="">ЖК «Жетысу <span lang="EN-US">KULTA-2</span>»</a>
-                <li><a target="content" href="">Жемчуг</a>
-                <li><a target="content" href="">Жетысу</a>
-                <li><a target="content" href="">Жетысу-2</a>
-                <li><a target="content" href="">Жетысу-24</a>
-                <li><a target="content" href=""><span lang="KZ">Жолдастар</span></a>
-                <li><a target="content" href=""><span lang="KZ">Жулдыз-16</span></a>
-                <li><a target="content" href="">Жулдыз-19</a>
+                <li><a target="content" href="">Р–Р°РЅРЅР°С‚</a>
+                <li><a target="content" href="">Р–Р°РЅСЃР°СЏ</a>
+                <li><a target="content" href="">Р–Рљ В«Р–РµС‚С‹СЃСѓ <span lang="EN-US">KULTA-2</span>В»</a>
+                <li><a target="content" href="">Р–РµРјС‡СѓРі</a>
+                <li><a target="content" href="">Р–РµС‚С‹СЃСѓ</a>
+                <li><a target="content" href="">Р–РµС‚С‹СЃСѓ-2</a>
+                <li><a target="content" href="">Р–РµС‚С‹СЃСѓ-24</a>
+                <li><a target="content" href=""><span lang="KZ">Р–РѕР»РґР°СЃС‚Р°СЂ</span></a>
+                <li><a target="content" href=""><span lang="KZ">Р–СѓР»РґС‹Р·-16</span></a>
+                <li><a target="content" href="">Р–СѓР»РґС‹Р·-19</a>
               </ul>
-            <li class="folder">З
+            <li class="folder">Р—
               <ul>
-                <li><a target="content" href="">Забота</a>
-                <li><a target="content" href="">Западный&nbsp;</a>
-                <li><a target="content" href="">Заря</a>
-                <li><a target="content" href="">&nbsp;Знамя</a>
-                <li><a target="content" href="">Звёздочка</a>
+                <li><a target="content" href="">Р—Р°Р±РѕС‚Р°</a>
+                <li><a target="content" href="">Р—Р°РїР°РґРЅС‹Р№&nbsp;</a>
+                <li><a target="content" href="">Р—Р°СЂСЏ</a>
+                <li><a target="content" href="">&nbsp;Р—РЅР°РјСЏ</a>
+                <li><a target="content" href="">Р—РІС‘Р·РґРѕС‡РєР°</a>
               </ul>
-            <li class="folder">И
+            <li class="folder">Р
               <ul>
-                <li><a target="content" href=""><span lang="KZ">Исмер</span></a>
+                <li><a target="content" href=""><span lang="KZ">РСЃРјРµСЂ</span></a>
               </ul>
-            <li class="folder">К
+            <li class="folder">Рљ
               <ul>
-                <li><a target="content" href=""><span lang="KZ">КААС</span></a>
-                <li><a target="content" href="">Кайрат</a>
-                <li><a target="content" href="">Калкаман</a>
-                <li><a target="content" href="">Ка<span lang="KZ">ратал</span></a>
-                <li><a target="content" href="">Каргалы</a>
-                <li><a target="content" href="">Кереге</a>
-                <li><a target="content" href="">Кок-Жиек</a>
-                <li><a target="content" href="">Колос</a>
-                <li><a target="content" href="">Корган</a>
-                <li><a target="content" href="">Космос</a>
-                <li><a target="content" href="">Куаныш</a>
+                <li><a target="content" href=""><span lang="KZ">РљРђРђРЎ</span></a>
+                <li><a target="content" href="">РљР°Р№СЂР°С‚</a>
+                <li><a target="content" href="">РљР°Р»РєР°РјР°РЅ</a>
+                <li><a target="content" href="">РљР°<span lang="KZ">СЂР°С‚Р°Р»</span></a>
+                <li><a target="content" href="">РљР°СЂРіР°Р»С‹</a>
+                <li><a target="content" href="">РљРµСЂРµРіРµ</a>
+                <li><a target="content" href="">РљРѕРє-Р–РёРµРє</a>
+                <li><a target="content" href="">РљРѕР»РѕСЃ</a>
+                <li><a target="content" href="">РљРѕСЂРіР°РЅ</a>
+                <li><a target="content" href="">РљРѕСЃРјРѕСЃ</a>
+                <li><a target="content" href="">РљСѓР°РЅС‹С€</a>
               </ul>
-            <li class="folder">Л
+            <li class="folder">Р›
               <ul>
-                <li><a target="content" href="">Лейла</a>
-                <li><a target="content" href="">ЖК <span lang="KZ">Лотос</span></a>
-                <li><a target="content" href="">Лидер-1</a>
-                <li><a target="content" href="">ЖСК Лотос</a>
-                <li><a target="content" href="">Луч</a>
+                <li><a target="content" href="">Р›РµР№Р»Р°</a>
+                <li><a target="content" href="">Р–Рљ <span lang="KZ">Р›РѕС‚РѕСЃ</span></a>
+                <li><a target="content" href="">Р›РёРґРµСЂ-1</a>
+                <li><a target="content" href="">Р–РЎРљ Р›РѕС‚РѕСЃ</a>
+                <li><a target="content" href="">Р›СѓС‡</a>
               </ul>
-            <li class="folder">М
+            <li class="folder">Рњ
               <ul>
-                <li><a target="content" href="">Максат</a>
-                <li><a target="content" href="">Мамыр</a>
-                <li><a target="content" href="">Мамыр-7</a>
-                <li><a target="content" href="">ЖК Марат</a>
-                <li><a target="content" href="">Маржан</a>
-                <li><a target="content" href="">Мариза</a>
-                <li><a target="content" href="">Марс Мкр. 5, д. 17,</a>
-                <li><a target="content" href="">Машиностроитель</a>
-                <li><a target="content" href="">Медработник</a>
-                <li><a target="content" href="">Медик</a>
-                <li><a target="content" href="">Мейрам</a>
-                <li><a target="content" href="">Мекен – жай</a>
-                <li><a target="content" href="">Мейрам</a>
-                <li><a target="content" href="">Мерей</a>
-                <li><a target="content" href="">Мерей-2</a>
-                <li><a target="content" href="">Мереке</a>
-                <li><a target="content" href="">Меруерт</a>
-                <li><a target="content" href="">Мечта</a>
-                <li><a target="content" href="">Мир</a>
-                <li><a target="content" href="">Молодость</a>
-                <li><a target="content" href="">Монтажник</a>
+                <li><a target="content" href="">РњР°РєСЃР°С‚</a>
+                <li><a target="content" href="">РњР°РјС‹СЂ</a>
+                <li><a target="content" href="">РњР°РјС‹СЂ-7</a>
+                <li><a target="content" href="">Р–Рљ РњР°СЂР°С‚</a>
+                <li><a target="content" href="">РњР°СЂР¶Р°РЅ</a>
+                <li><a target="content" href="">РњР°СЂРёР·Р°</a>
+                <li><a target="content" href="">РњР°СЂСЃ РњРєСЂ. 5, Рґ. 17,</a>
+                <li><a target="content" href="">РњР°С€РёРЅРѕСЃС‚СЂРѕРёС‚РµР»СЊ</a>
+                <li><a target="content" href="">РњРµРґСЂР°Р±РѕС‚РЅРёРє</a>
+                <li><a target="content" href="">РњРµРґРёРє</a>
+                <li><a target="content" href="">РњРµР№СЂР°Рј</a>
+                <li><a target="content" href="">РњРµРєРµРЅ вЂ“ Р¶Р°Р№</a>
+                <li><a target="content" href="">РњРµР№СЂР°Рј</a>
+                <li><a target="content" href="">РњРµСЂРµР№</a>
+                <li><a target="content" href="">РњРµСЂРµР№-2</a>
+                <li><a target="content" href="">РњРµСЂРµРєРµ</a>
+                <li><a target="content" href="">РњРµСЂСѓРµСЂС‚</a>
+                <li><a target="content" href="">РњРµС‡С‚Р°</a>
+                <li><a target="content" href="">РњРёСЂ</a>
+                <li><a target="content" href="">РњРѕР»РѕРґРѕСЃС‚СЊ</a>
+                <li><a target="content" href="">РњРѕРЅС‚Р°Р¶РЅРёРє</a>
               </ul>
-            <li class="folder">Н
+            <li class="folder">Рќ
               <ul>
-                <li><a target="content" href="">Надежда</a>
-                <li><a target="content" href="">Наурыз</a>
-                <li><a target="content" href="">Наурыз-2</a>
-                <li><a target="content" href="">Научный-1</a>
-                <li><a target="content" href=""><span lang="KZ">Нурлан</span></a>
+                <li><a target="content" href="">РќР°РґРµР¶РґР°</a>
+                <li><a target="content" href="">РќР°СѓСЂС‹Р·</a>
+                <li><a target="content" href="">РќР°СѓСЂС‹Р·-2</a>
+                <li><a target="content" href="">РќР°СѓС‡РЅС‹Р№-1</a>
+                <li><a target="content" href=""><span lang="KZ">РќСѓСЂР»Р°РЅ</span></a>
               </ul>
-            <li class="folder">О
+            <li class="folder">Рћ
               <ul>
-                <li><a target="content" href="">Огонёк</a>
-                <li><a target="content" href="">Орда</a>
-                <li><a target="content" href="">Октябрь</a>
-                <li><a target="content" href="">Отау</a>
+                <li><a target="content" href="">РћРіРѕРЅС‘Рє</a>
+                <li><a target="content" href="">РћСЂРґР°</a>
+                <li><a target="content" href="">РћРєС‚СЏР±СЂСЊ</a>
+                <li><a target="content" href="">РћС‚Р°Сѓ</a>
               </ul>
-            <li class="folder">П
+            <li class="folder">Рџ
               <ul>
-                <li><a target="content" href="">Первомайский&nbsp;</a>
-                <li><a target="content" href="">Перспекти</a>
-                <li><a target="content" href="">Победа</a>
-                <li><a target="content" href=""><span lang="EN-US">XX</span> Победы</a>
-                <li><a target="content" href="">Правда</a>
-                <li><a target="content" href="">Престиж 7</a>
-                <li><a target="content" href="">Прогресс</a>
-                <li><a target="content" href="">Прометей</a>
+                <li><a target="content" href="">РџРµСЂРІРѕРјР°Р№СЃРєРёР№&nbsp;</a>
+                <li><a target="content" href="">РџРµСЂСЃРїРµРєС‚Рё</a>
+                <li><a target="content" href="">РџРѕР±РµРґР°</a>
+                <li><a target="content" href=""><span lang="EN-US">XX</span> РџРѕР±РµРґС‹</a>
+                <li><a target="content" href="">РџСЂР°РІРґР°</a>
+                <li><a target="content" href="">РџСЂРµСЃС‚РёР¶ 7</a>
+                <li><a target="content" href="">РџСЂРѕРіСЂРµСЃСЃ</a>
+                <li><a target="content" href="">РџСЂРѕРјРµС‚РµР№</a>
               </ul>
-            <li class="folder">Р
+            <li class="folder">Р 
               <ul>
-                <li><a target="content" href="">Радуга</a>
-                <li><a target="content" href="">Ракета</a>
-                <li><a target="content" href="">Раушан</a>
-                <li><a target="content" href="">Рахат-12</a>
-                <li><a target="content" href="">Романти<span lang="KZ">ка</span></a>
+                <li><a target="content" href="">Р Р°РґСѓРіР°</a>
+                <li><a target="content" href="">Р Р°РєРµС‚Р°</a>
+                <li><a target="content" href="">Р Р°СѓС€Р°РЅ</a>
+                <li><a target="content" href="">Р Р°С…Р°С‚-12</a>
+                <li><a target="content" href="">Р РѕРјР°РЅС‚Рё<span lang="KZ">РєР°</span></a>
               </ul>
-            <li class="folder">С
+            <li class="folder">РЎ
               <ul>
-                <li><a target="content" href="">С/хоз/ва</a>
-                <li><a target="content" href="">Сайран</a>
-                <li><a target="content" href="">Сайран-2</a>
-                <li><a target="content" href="">Салют</a>
-                <li><a target="content" href="">Сары-Арка</a>
-                <li><a target="content" href="">Сатурн</a>
-                <li><a target="content" href="">Сауле</a>
-                <li><a target="content" href="">Саулет</a>
-                <li><a target="content" href="">ПК «Свет и тепло»</a>
-                <li><a target="content" href="">Север</a>
-                <li><a target="content" href="">Сеним</a>
-                <li><a target="content" href="">Семиречье</a>
-                <li><a target="content" href="">Солнышко</a>
-                <li><a target="content" href="">Максат</a>
-                <li><a target="content" href="">Согласие</a>
-                <li><a target="content" href="">Содружест<span lang="KZ">в</span>о</a>
-                <li><a target="content" href="">Сокол</a>
-                <li><a target="content" href="">Сплав</a>
-                <li><a target="content" href="">Спутник</a>
-                <li><a target="content" href="">Сымбат</a>
+                <li><a target="content" href="">РЎ/С…РѕР·/РІР°</a>
+                <li><a target="content" href="">РЎР°Р№СЂР°РЅ</a>
+                <li><a target="content" href="">РЎР°Р№СЂР°РЅ-2</a>
+                <li><a target="content" href="">РЎР°Р»СЋС‚</a>
+                <li><a target="content" href="">РЎР°СЂС‹-РђСЂРєР°</a>
+                <li><a target="content" href="">РЎР°С‚СѓСЂРЅ</a>
+                <li><a target="content" href="">РЎР°СѓР»Рµ</a>
+                <li><a target="content" href="">РЎР°СѓР»РµС‚</a>
+                <li><a target="content" href="">РџРљ В«РЎРІРµС‚ Рё С‚РµРїР»РѕВ»</a>
+                <li><a target="content" href="">РЎРµРІРµСЂ</a>
+                <li><a target="content" href="">РЎРµРЅРёРј</a>
+                <li><a target="content" href="">РЎРµРјРёСЂРµС‡СЊРµ</a>
+                <li><a target="content" href="">РЎРѕР»РЅС‹С€РєРѕ</a>
+                <li><a target="content" href="">РњР°РєСЃР°С‚</a>
+                <li><a target="content" href="">РЎРѕРіР»Р°СЃРёРµ</a>
+                <li><a target="content" href="">РЎРѕРґСЂСѓР¶РµСЃС‚<span lang="KZ">РІ</span>Рѕ</a>
+                <li><a target="content" href="">РЎРѕРєРѕР»</a>
+                <li><a target="content" href="">РЎРїР»Р°РІ</a>
+                <li><a target="content" href="">РЎРїСѓС‚РЅРёРє</a>
+                <li><a target="content" href="">РЎС‹РјР±Р°С‚</a>
               </ul>
-            <li class="folder">Т
+            <li class="folder">Рў
               <ul>
-                <li><a target="content" href="">Таган</a>
-                <li><a target="content" href="">Тастак-1-Пуск</a>
-                <li><a target="content" href="">Таугуль</a>
-                <li><a target="content" href="">Таугуль-3</a>
-                <li><a target="content" href="">Текстиль</a>
-                <li><a target="content" href="">Титан</a>
-                <li><a target="content" href="">Токаш</a>
-                <li><a target="content" href="">Турмыс</a>
-                <li><a target="content" href="">ТОО Турмыс- Лимитед</a>
-                <li><a target="content" href="">Тянь-Шань</a>
-                <li><a target="content" href="">Тюльпан</a>
+                <li><a target="content" href="">РўР°РіР°РЅ</a>
+                <li><a target="content" href="">РўР°СЃС‚Р°Рє-1-РџСѓСЃРє</a>
+                <li><a target="content" href="">РўР°СѓРіСѓР»СЊ</a>
+                <li><a target="content" href="">РўР°СѓРіСѓР»СЊ-3</a>
+                <li><a target="content" href="">РўРµРєСЃС‚РёР»СЊ</a>
+                <li><a target="content" href="">РўРёС‚Р°РЅ</a>
+                <li><a target="content" href="">РўРѕРєР°С€</a>
+                <li><a target="content" href="">РўСѓСЂРјС‹СЃ</a>
+                <li><a target="content" href="">РўРћРћ РўСѓСЂРјС‹СЃ- Р›РёРјРёС‚РµРґ</a>
+                <li><a target="content" href="">РўСЏРЅСЊ-РЁР°РЅСЊ</a>
+                <li><a target="content" href="">РўСЋР»СЊРїР°РЅ</a>
               </ul>
-            <li class="folder">У
+            <li class="folder">РЈ
               <ul>
-                <li><a target="content" href="">Улан</a>
-                <li><a target="content" href="">Улан-96</a>
-                <li><a target="content" href="">Упр.</a>
-                <li><a target="content" href="">Уют-28</a>
+                <li><a target="content" href="">РЈР»Р°РЅ</a>
+                <li><a target="content" href="">РЈР»Р°РЅ-96</a>
+                <li><a target="content" href="">РЈРїСЂ.</a>
+                <li><a target="content" href="">РЈСЋС‚-28</a>
               </ul>
-            <li class="folder">Ф
+            <li class="folder">Р¤
               <ul>
-                <li><a target="content" href="">Факел</a>
+                <li><a target="content" href="">Р¤Р°РєРµР»</a>
               </ul>
-            <li class="folder">Ч
+            <li class="folder">Р§
               <ul>
-                <li><a target="content" href="">Чайка</a>
+                <li><a target="content" href="">Р§Р°Р№РєР°</a>
               </ul>
-            <li class="folder">Ш
+            <li class="folder">РЁ
               <ul>
-                <li><a target="content" href="">Школьник</a>
+                <li><a target="content" href="">РЁРєРѕР»СЊРЅРёРє</a>
               </ul>
-            <li class="folder">Э
+            <li class="folder">Р­
               <ul>
-                <li><a target="content" href="">Эдельвейс &nbsp;Мкр. 8, д. 17</a>
-                <li><a target="content" href="">Электро</a>
-                <li><a target="content" href="">Электрон</a>
+                <li><a target="content" href="">Р­РґРµР»СЊРІРµР№СЃ &nbsp;РњРєСЂ. 8, Рґ. 17</a>
+                <li><a target="content" href="">Р­Р»РµРєС‚СЂРѕ</a>
+                <li><a target="content" href="">Р­Р»РµРєС‚СЂРѕРЅ</a>
               </ul>
-            <li class="folder">Ю
+            <li class="folder">Р®
               <ul>
-                <li><a target="content" href="">Юпитер</a>
+                <li><a target="content" href="">Р®РїРёС‚РµСЂ</a>
               </ul>
-            <li class="folder">Общ
+            <li class="folder">РћР±С‰
               <ul>
-                <li><a target="content" href="">Общ. «АЗТМ»</a>
-                <li><a target="content" href="">Общ.«Казмеханобр» университет Донирели</a>
-                <li><a target="content" href="">Общ. Кол. Сер. Гр.</a>
-                <li><a target="content" href="">Общ. Колледж Сервиса</a>
+                <li><a target="content" href="">РћР±С‰. В«РђР—РўРњВ»</a>
+                <li><a target="content" href="">РћР±С‰.В«РљР°Р·РјРµС…Р°РЅРѕР±СЂВ» СѓРЅРёРІРµСЂСЃРёС‚РµС‚ Р”РѕРЅРёСЂРµР»Рё</a>
+                <li><a target="content" href="">РћР±С‰. РљРѕР». РЎРµСЂ. Р“СЂ.</a>
+                <li><a target="content" href="">РћР±С‰. РљРѕР»Р»РµРґР¶ РЎРµСЂРІРёСЃР°</a>
               </ul>
-            <li class="folder">Остальные
+            <li class="folder">РћСЃС‚Р°Р»СЊРЅС‹Рµ
               <ul>
-                <li><a target="content" href="">ТОО «Каргалы»</a>
-                <li><a target="content" href="">«Позибив»</a>
-                <li><a target="content" href="">ПК Рауан</a>
-                <li><a target="content" href="">ЖК «Виктория»</a>
+                <li><a target="content" href="">РўРћРћ В«РљР°СЂРіР°Р»С‹В»</a>
+                <li><a target="content" href="">В«РџРѕР·РёР±РёРІВ»</a>
+                <li><a target="content" href="">РџРљ Р Р°СѓР°РЅ</a>
+                <li><a target="content" href="">Р–Рљ В«Р’РёРєС‚РѕСЂРёСЏВ»</a>
               <ul>
           </ul>
         <li class="folder expanded"> Examples
@@ -494,3 +518,4 @@
 
 </body>
 </html>
+

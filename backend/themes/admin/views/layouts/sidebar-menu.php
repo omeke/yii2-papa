@@ -21,6 +21,29 @@ echo Menu::widget(
                 'active' => Yii::$app->request->url === Yii::$app->homeUrl
             ],
             [
+                'label' => Yii::t('admin', 'Temp'),
+                'url' => '#',
+                'icon' => 'fa-question',
+                'visible' => Yii::$app->user->can('superadmin'),
+                'items' => [
+                    [
+                        'label' => Yii::t('admin', 'Groups'),
+                        'url' => ['/temp/group/index'],
+                        'visible' => Yii::$app->user->can('superadmin'),
+                    ],
+                    [
+                        'label' => Yii::t('admin', 'Objects'),
+                        'url' => ['/temp/object/index'],
+                        'visible' => Yii::$app->user->can('superadmin'),
+                    ],
+                    [
+                        'label' => Yii::t('admin', 'Objects Info'),
+                        'url' => ['/temp/object-info/index'],
+                        'visible' => Yii::$app->user->can('superadmin'),
+                    ]
+                ]
+            ],
+            [
                 'label' => Yii::t('admin', 'Users'),
                 'url' => ['/users/default/index'],
                 'icon' => 'fa-group',

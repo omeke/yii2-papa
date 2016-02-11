@@ -28,7 +28,9 @@
         "vova07/yii2-start-users-module": "*",
         "vova07/yii2-start-blogs-module": "*",
         "vova07/yii2-start-comments-module": "*",
-        "vova07/yii2-start-rbac-module": "*"
+        "vova07/yii2-start-rbac-module": "*",
+        "nemmo/yii2-attachments": "*",
+        "wbraganca/yii2-fancytree-widget": "*"
     },
     "require-dev": {
     	"yiisoft/yii2-debug": "*",

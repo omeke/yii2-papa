@@ -14,6 +14,17 @@ return [
         ],
         'comments' => [
             'class' => 'vova07\comments\Module'
+        ],
+        'attachments' => [
+            'class' => nemmo\attachments\Module::className(),
+            'tempPath' => '@statics/web/attachments/temp',
+            'storePath' => '@statics/web/attachments/store',
+            'rules' => [ // Rules according to the FileValidator
+                'maxFiles' => 10, // Allow to upload maximum 3 files, default to 3
+                'mimeTypes' => ['image/png', 'image/jpeg'], // Only png images
+                'maxSize' => 1024 * 1024 // 1 MB
+            ],
+            'tableName' => '{{%attachments}}' // Optional, default to 'attach_file'
         ]
     ],
     'components' => [

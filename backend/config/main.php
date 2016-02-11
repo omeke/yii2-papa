@@ -8,6 +8,9 @@ return [
     'basePath' => dirname(__DIR__),
     'defaultRoute' => 'admin/default/index',
     'modules' => [
+        'temp' => [
+            'class' => \backend\modules\temp\Temp::className(),
+        ],
         'admin' => [
             'class' => 'vova07\admin\Module'
         ],

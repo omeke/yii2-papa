@@ -2,7 +2,7 @@
 
 return [
     'id' => 'app-frontend',
-    'name' => 'Yii2-Start',
+    'name' => 'КСК-АУЕЗОВ',
     'basePath' => dirname(__DIR__),
     'defaultRoute' => 'site/default/index',
     'modules' => [
@@ -12,6 +12,9 @@ return [
         'blogs' => [
             'controllerNamespace' => 'vova07\blogs\controllers\frontend'
         ],
+        'temp' => [
+            'class' => 'frontend\modules\temp\Temp',
+        ]
     ],
     'components' => [
         'request' => [
