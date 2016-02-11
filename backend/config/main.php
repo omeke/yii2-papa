@@ -28,7 +28,7 @@ return [
     'components' => [
         'request' => [
             'cookieValidationKey' => '7fdsf%dbYd&djsb#sn0mlsfo(kj^kf98dfh',
-            'baseUrl' => '/'
+            'baseUrl' => ''
         ],
         'urlManager' => [
             'rules' => [
@@ -37,7 +37,7 @@ return [
             ]
         ],
         'view' => [
-            'theme' => 'vova07\themes\admin\Theme'
+            'theme' => 'backend\themes\admin\Theme'
         ],
         'errorHandler' => [
             'errorAction' => 'admin/default/error'
@@ -50,6 +50,18 @@ return [
                     'levels' => ['error', 'warning']
                 ]
             ]
+        ],
+        'i18n'=>[
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => 'backend/themes/site/messages',
+                    'forceTranslation' => false,
+                    'fileMap' => [
+                        'admin' => 'admin.php',
+                    ],
+                ]
+            ],
         ]
     ],
     'params' => require(__DIR__ . '/params.php')

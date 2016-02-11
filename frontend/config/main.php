@@ -25,7 +25,7 @@ return [
             ]
         ],
         'view' => [
-            'theme' => 'vova07\themes\site\Theme'
+            'theme' => 'frontend\themes\site\Theme'
         ],
         'errorHandler' => [
             'errorAction' => 'site/default/error'
@@ -38,6 +38,18 @@ return [
                     'levels' => ['error', 'warning']
                 ]
             ]
+        ],
+        'i18n'=>[
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => 'frontend/themes/site/messages',
+                    'forceTranslation' => false,
+                    'fileMap' => [
+                        'site' => 'site.php',
+                    ],
+                ]
+            ],
         ]
     ],
     'params' => require(__DIR__ . '/params.php')
