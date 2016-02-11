@@ -4,7 +4,7 @@ return [
     'id' => 'app-frontend',
     'name' => 'КСК-АУЕЗОВ',
     'basePath' => dirname(__DIR__),
-    'defaultRoute' => 'site/default/index',
+    'defaultRoute' => 'temp/default/index',
     'modules' => [
         'site' => [
             'class' => 'vova07\site\Module'
@@ -23,7 +23,7 @@ return [
         ],
         'urlManager' => [
             'rules' => [
-                '' => 'site/default/index',
+                '' => 'temp/default/index',
                 '<_a:(about|contacts|captcha)>' => 'site/default/<_a>'
             ]
         ],

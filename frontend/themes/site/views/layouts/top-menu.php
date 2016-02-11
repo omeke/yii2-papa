@@ -16,7 +16,7 @@ echo Menu::widget(
         'items' => [
             [
                 'label' => 'Документы',
-                'url' => ['/info/index']
+                'url' => ['/temp/default/index']
             ],
             [
                 'label' => 'Лента новостей',
