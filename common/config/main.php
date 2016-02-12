@@ -48,13 +48,17 @@ return [
             'linkAssets' => true
         ],
         'authManager' => [
-            'class' => 'yii\rbac\PhpManager',
+            'class' => 'yii\rbac\DbManager',
             'defaultRoles' => [
                 'user'
             ],
-            'itemFile' => '@vova07/rbac/data/items.php',
-            'assignmentFile' => '@vova07/rbac/data/assignments.php',
-            'ruleFile' => '@vova07/rbac/data/rules.php',
+            'itemTable' => 'auth_item',
+            'itemChildTable' => 'auth_item_child',
+            'assignmentTable' => 'auth_assignment',
+            'ruleTable' => 'auth_rule',
+//            'itemFile' => '@vova07/rbac/data/items.php',
+//            'assignmentFile' => '@vova07/rbac/data/assignments.php',
+//            'ruleFile' => '@vova07/rbac/data/rules.php',
         ],
         'formatter' => [
             'dateFormat' => 'dd.MM.y',
