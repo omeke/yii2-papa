@@ -44,6 +44,29 @@ echo Menu::widget(
                 ]
             ],
             [
+                'label' => Yii::t('admin', 'Parse'),
+                'url' => '#',
+                'icon' => 'fa-question',
+                'visible' => Yii::$app->user->can('superadmin'),
+                'items' => [
+                    [
+                        'label' => Yii::t('admin', 'Regions'),
+                        'url' => ['/temp/parse-region/index'],
+                        'visible' => Yii::$app->user->can('superadmin'),
+                    ],
+                    [
+                        'label' => Yii::t('admin', 'Ksk'),
+                        'url' => ['/temp/parse-ksk/index'],
+                        'visible' => Yii::$app->user->can('superadmin'),
+                    ],
+                    [
+                        'label' => Yii::t('admin', 'Otchet'),
+                        'url' => ['/temp/parse-otchet/index'],
+                        'visible' => Yii::$app->user->can('superadmin'),
+                    ]
+                ]
+            ],
+            [
                 'label' => Yii::t('admin', 'Users'),
                 'url' => ['/users/default/index'],
                 'icon' => 'fa-group',

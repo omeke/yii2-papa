@@ -142,6 +142,36 @@
      console.log(ans+',');
    }
 //   if(i > 20) break;
+
+
+     var elems = document.getElementsByTagName('ol');
+     var start = false;
+     var end = false;
+     for(i in elems) {
+//       console.log(elems[i]);
+       sub_elems = elems[i].getElementsByTagName('a');
+       for(j in sub_elems) {
+//         console.log(sub_elems[j]);
+         text = sub_elems[j].innerHTML;
+         if (typeof sub_elems[j] == 'object') {
+           exist = 0;
+           if (text.indexOf('font') > -1) {
+            exist = 1;
+           }
+           console.log('[\''+sub_elems[j].innerText+'\', \''+sub_elems[j].href+'\','+exist+'],');
+         }
+       }
+     }
+
+     var elems = document.getElementsByClassName('category_block');
+     for(i in elems) {
+       sub_elems = elems[i].getElementsByClassName('maintitle');
+       if (sub_elems.length > 0) {
+         sub_elems = sub_elems[0].getElementsByTagName('a')[1];
+         console.log('[\'' + sub_elems.title + '\', \'' + sub_elems.href + '\']');
+       }
+     }
+
  }
  document.getElementsByTagName('td').getElementsByTagName('p').length
 </script>

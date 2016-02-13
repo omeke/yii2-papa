@@ -6,7 +6,7 @@ return [
     'id' => 'app-backend',
     'name' => 'Yii2-Start',
     'basePath' => dirname(__DIR__),
-    'defaultRoute' => 'admin/default/index',
+    'defaultRoute' => 'temp/dashboard/index',
     'modules' => [
         'temp' => [
             'class' => \backend\modules\temp\Temp::className(),
@@ -35,7 +35,7 @@ return [
         ],
         'urlManager' => [
             'rules' => [
-                '' => 'admin/default/index',
+                '' => 'temp/dashboard/index',
                 '<_m>/<_c>/<_a>' => '<_m>/<_c>/<_a>'
             ]
         ],
