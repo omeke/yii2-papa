@@ -26,6 +26,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             [
+                'attribute' => 'region_id',
+                'value' => 'parseKsk.parseRegion.name',
+                'filter' => \yii\helpers\ArrayHelper::map(\common\models\ParseRegion::find()->all(), 'id', 'name')
+            ],
+            [
                 'attribute' => 'parse_ksk_id',
                 'value' => 'parseKsk.name',
                 'filter' => \yii\helpers\ArrayHelper::map(\common\models\ParseKsk::find()->all(), 'id', 'name')

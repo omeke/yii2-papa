@@ -2,6 +2,7 @@
 
 namespace backend\modules\temp\models;
 
+use common\models\ParseKsk;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
@@ -12,13 +13,14 @@ use common\models\ParseOtchet;
  */
 class ParseOtchetSearch extends ParseOtchet
 {
+    public $region_id;
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'parse_ksk_id'], 'integer'],
+            [['id', 'parse_ksk_id', 'region_id'], 'integer'],
             [['name', 'url_otchet', 'posted_at', 'updated_at'], 'safe'],
         ];
     }
@@ -42,6 +44,7 @@ class ParseOtchetSearch extends ParseOtchet
     public function search($params)
     {
         $query = ParseOtchet::find();
+        $query->joinWith(['parseKsk']);
 
         // add conditions that should always apply here
 
@@ -60,6 +63,7 @@ class ParseOtchetSearch extends ParseOtchet
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            ParseKsk::tableName().'.parse_region_id' => $this->region_id,
             'parse_ksk_id' => $this->parse_ksk_id,
             'posted_at' => $this->posted_at,
             'updated_at' => $this->updated_at,
