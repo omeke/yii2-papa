@@ -2,7 +2,9 @@
 
 namespace frontend\modules\temp\controllers;
 
+use common\helpers\KskObjectDataHelper;
 use common\models\Group;
+use common\models\LeaveMessage;
 use common\models\Object;
 use common\models\ObjectInfo;
 use yii\helpers\Json;
@@ -78,7 +80,8 @@ class DefaultController extends Controller
 
 
         return $this->render('index', [
-            'data' => $data
+            'data' => KskObjectDataHelper::getData()
+//            'data' => $data
         ]);
     }
 
@@ -109,6 +112,23 @@ class DefaultController extends Controller
         }
         return Json::encode([
             'success' => false
+        ]);
+    }
+
+    public function actionContact()
+    {
+        $model = new LeaveMessage();
+        $model->status = LeaveMessage::STATUS_NEW;
+
+        if ($model->load(\Yii::$app->request->post())) {
+            $model->user_ip = \Yii::$app->request->userIP;
+            if ($model->save()) {
+                \Yii::$app->session->setFlash('info', 'В скором времени вам ответят');
+            }
+        }
+
+        return $this->render('contact', [
+            'model' => $model
         ]);
     }
 }
