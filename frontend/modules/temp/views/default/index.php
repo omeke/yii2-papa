@@ -6,7 +6,7 @@ $this->title = 'Документы';
 
 ?>
 
-<div class="visible-xs-block col-xs-12">
+<div class="hidden-sm hidden-md hidden-lg col-xs-12">
     <?= \frontend\themes\site\widgets\ListGroupWidget::widget([
         'data' => $data,
         'options' => [
@@ -17,7 +17,7 @@ $this->title = 'Документы';
 
 
 <div class="container">
-    <div class="hidden-xs col-md-3">
+    <div class="hidden-xs col-sm-4 col-md-3 col-lg-3">
 
         <?= \wbraganca\fancytree\FancytreeWidget::widget([
             'options' => [
@@ -49,7 +49,7 @@ $this->title = 'Документы';
         ]); ?>
     </div>
 
-    <div class="hidden-xs col-md-9">
+    <div class="hidden-xs col-sm-8 col-md-9 col-lg-9">
         <?php
 
         class nokogiri implements IteratorAggregate

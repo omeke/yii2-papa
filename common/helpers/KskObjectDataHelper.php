@@ -36,7 +36,7 @@ class KskObjectDataHelper
             foreach ($group->objects as $object) {
                 /* @var $object Object */
 
-                $data[$data_size]['children'] = [
+                $data[$data_size]['children'][] = [
                     'title' => $object->name,
                     'folder' => true,
                     'expanded' => false,
@@ -50,6 +50,7 @@ class KskObjectDataHelper
 
             }
             $data[$data_size]['count'] = sizeof($data[$data_size]['children']);
+            $data_size++;
         }
 
         return $data;

@@ -22,42 +22,12 @@ class DefaultController extends Controller
     public function actionIndex()
     {
         $data = [];
-//        $data[] = [
-//            'key' => 1002,
-//            'title' => 'sample',
-//            'folder' => true,
-//            'expanded' => false,
-//            'children' => [
-//                'key' => 1001,
-//                'title' => 'sub_sample',
-//                'folder' => true,
-//                'active' => false,
-//                'expanded' => false,
-//                'children' => [
-//                    ['title' => 'item1', 'key' => 1000],
-//                    ['title' => 'item2', 'key' => 2000]
-//                ]
-//            ]
-//        ];
         foreach (Group::find()->all() as $group) {
             /* @var $group Group */
             $childs = [];
             foreach ($group->objects as $object) {
                 /* @var $object Object */
-                $first_let = mb_substr(trim($object->name), 0, 1);
-                $first_let !== false ?: $first_let = '#';
-
-//                if (!isset($childs[$first_let])) {
-//                    $childs[$first_let] = [
-//                        'title' => $first_let,
-//                        'folder' => true,
-//                        'expanded' => false,
-//                        'children' => []
-//                    ];
-//                }
                 $childs[] = [
-//                $childs[$first_let]['children'][] = [
-//                    'title' => $object->name, 'key' => $object->id
                     'title' => trim($object->name),
                     'folder' => true,
                     'expanded' => false,

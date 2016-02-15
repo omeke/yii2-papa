@@ -19,6 +19,10 @@ echo Menu::widget(
                 'url' => ['/temp/default/index']
             ],
             [
+                'label' => 'Контакты',
+                'url' => ['/temp/default/contact']
+            ],
+            [
                 'label' => 'Лента новостей',
                 'url' => ['/blogs/default/index']
             ],

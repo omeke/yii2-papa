@@ -15,6 +15,7 @@ namespace frontend\themes\site\widgets;
 
 use yii\bootstrap\Html;
 use yii\bootstrap\Widget;
+use yii\helpers\VarDumper;
 use yii\web\NotFoundHttpException;
 use yii\web\View;
 
@@ -99,6 +100,7 @@ class ListGroupWidget extends Widget
 
     public function run()
     {
+//        return VarDumper::dump($this->data, 10, true);
         if (!isset($this->options['padding'])) {
             $this->options['padding'] = 5;
         }
@@ -149,27 +151,33 @@ JS;
     private function registerCSS()
     {
         $css = <<<CSS
-.accordion-file:before {
-    font-family: 'Glyphicons Halflings';
-    content: "\\e086";
-    padding-right: 10px;
-    float:left;
-    color: gray;
-}
-.accordion-toggle:before {
-    font-family: 'Glyphicons Halflings';
-    content: "\\e118";
-    padding-right: 10px;
-    float:left;
-    color: gray;
-}
-.accordion-toggle.collapsed:before {
-    font-family: 'Glyphicons Halflings';
-    content: "\\e117";
-    padding-right: 10px;
-    float:left;
-    color: gray;
-}
+        .accordion-file {
+            width: 100%;
+        }
+        .accordion-file:before {
+            font-family: 'Glyphicons Halflings';
+            content: "\\e086";
+            padding-right: 10px;
+            float:left;
+            color: gray;
+        }
+        .accordion-toggle {
+            width: 100%;
+        }
+        .accordion-toggle:before {
+            font-family: 'Glyphicons Halflings';
+            content: "\\e118";
+            padding-right: 10px;
+            float:left;
+            color: gray;
+        }
+        .accordion-toggle.collapsed:before {
+            font-family: 'Glyphicons Halflings';
+            content: "\\e117";
+            padding-right: 10px;
+            float:left;
+            color: gray;
+        }
 CSS;
         $this->view->registerCss($css);
     }
