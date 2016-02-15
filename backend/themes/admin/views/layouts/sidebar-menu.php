@@ -21,6 +21,21 @@ echo Menu::widget(
                 'active' => Yii::$app->request->url === Yii::$app->homeUrl
             ],
             [
+                'label' => Yii::t('admin', 'Guest'),
+                'url' => '#',
+                'icon' => 'fa-question',
+                'visible' => Yii::$app->user->can('superadmin'),
+                'active' => strpos(Yii::$app->requestedRoute, 'guest/') === 0,
+                'items' => [
+                    [
+                        'label' => Yii::t('admin', 'Contact'),
+                        'url' => ['/guest/leave-message/index'],
+                        'active' => strpos(Yii::$app->requestedRoute, '/contact/') !== false,
+                        'visible' => Yii::$app->user->can('superadmin'),
+                    ],
+                ]
+            ],
+            [
                 'label' => Yii::t('admin', 'Ksk'),
                 'url' => '#',
                 'icon' => 'fa-question',

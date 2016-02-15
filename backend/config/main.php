@@ -17,6 +17,9 @@ return [
         'ksk' => [
             'class' => \backend\modules\ksk\Ksk::className(),
         ],
+        'guest' => [
+            'class' => \backend\modules\guest\Guest::className(),
+        ],
         'admin' => [
             'class' => 'vova07\admin\Module'
         ],
