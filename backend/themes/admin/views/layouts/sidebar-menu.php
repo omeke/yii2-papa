@@ -25,7 +25,7 @@ echo Menu::widget(
                 'url' => '#',
                 'icon' => 'fa-question',
                 'visible' => Yii::$app->user->can('superadmin'),
-                'active' => strpos(Yii::$app->requestedRoute, 'ksk/') !== false,
+                'active' => strpos(Yii::$app->requestedRoute, 'ksk/') === 0,
                 'items' => [
                     [
                         'label' => Yii::t('admin', 'Groups'),
@@ -58,7 +58,7 @@ echo Menu::widget(
                 'url' => '#',
                 'icon' => 'fa-question',
                 'visible' => Yii::$app->user->can('superadmin'),
-                'active' => strpos(Yii::$app->requestedRoute, 'parse/') !== false,
+                'active' => strpos(Yii::$app->requestedRoute, 'parse/') === 0,
                 'items' => [
                     [
                         'label' => Yii::t('admin', 'Regions'),
