@@ -76,11 +76,18 @@ use yii\widgets\Breadcrumbs;
     <footer id="footer" class="midnight-blue">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2014 <?= Yii::$app->name ?>. <?= Yii::t('site', 'All Rights Reserved') ?>.
-                </div>
-                <div class="col-sm-6">
-                    <?= $this->render('//layouts/top-menu', ['footer' => true]) ?>
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>Контакты</strong></h4>
+                    <p>Респубика Казахстан, город Алматы, улица Алтынсарина,23</p>
+                    <ul class="list-unstyled">
+                        <li><i class="glyphicon glyphicon-earphone"></i> <a href="tel:+77013508558">+7(701)350-85-58</a>
+                        </li>
+                        <li><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:ksk_auezov@mail.ru">ksk_auezov@mail.ru</a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">&copy; 2016 <?= Yii::$app->name ?>
+                        . <?= Yii::t('site', 'All Rights Reserved') ?>.</p>
                 </div>
             </div>
         </div>

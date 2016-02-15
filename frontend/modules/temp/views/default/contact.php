@@ -84,9 +84,9 @@ $this->title = 'Контакты';
     <ul class="other-info list-unstyled col-md-4 col-sm-5 col-xs-12">
         <li><i class="glyphicon glyphicon-send button" data-toggle="modal" data-target="#contact_us"></i>
             <a href="#" data-toggle="modal" data-target="#contact_us">Отправить сообщение</a></li>
-        <li><i class="glyphicon glyphicon-envelope"></i><a href="#">ksk_auezov@mail.ru</a></li>
-        <li><i class="glyphicon glyphicon-earphone button" data-toggle="modal" data-target="#contact_us"></i>
-            <a href="tel:+77017687548">+7(701)350-85-58</a></li>
+        <li><i class="glyphicon glyphicon-envelope button"></i><a href="mailto:ksk_auezov@mail.ru">ksk_auezov@mail.ru</a></li>
+        <li><i class="glyphicon glyphicon-earphone"></i>
+            <a href="tel:+77013508558">+7(701)350-85-58</a></li>
         <li><i class="glyphicon glyphicon-map-marker"></i>Респубика Казахстан,<br> город Алматы,<br> улица
             Алтынсарина,23
         </li>
