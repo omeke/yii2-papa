@@ -123,12 +123,29 @@ function getInfoM(id) {
     $.post("/temp/default/info/", {id: id,  _csrf:csrfToken},
         function (data) {
             if(data.success){
-                $('#address_ksk_m').html(data.data.address_ksk);
-                $('#amount_house_m').html(data.data.amount_house);
-                $('#address_house_m').html(data.data.address_house);
-                $('#fullname_chairman_m').html(data.data.fullname_chairman);
-                $('#phone_m').html(data.data.phone);
+                $('#address_ksk_m').html(data.info.address_ksk);
+                $('#amount_house_m').html(data.info.amount_house);
+                $('#address_house_m').html(data.info.address_house);
+                $('#fullname_chairman_m').html(data.info.fullname_chairman);
+                $('#phone_m').html(data.info.phone);
                 $('#info_m').modal('show');
+            }
+        },'json');
+}
+
+function getDocM(id) {
+    var csrfToken = $('meta[name="csrf-token"]').attr("content");
+    $.post("/temp/default/doc/", {id: id,  _csrf:csrfToken},
+        function (data) {
+            if(data.success){
+                $('#doc_body').html('');
+                $.each(data.files, function(key, value) {
+                    var path = value.substr(0,2)+'/'+value.substr(3,2)+'/'+value.substr(6,2)+'/'+value;
+                    path = 'http://statics.kskauezov.kz/attachments/store/' + path;
+                    console.log(path);
+                    $('#doc_body').append('<img src="'+path+'" style="width: 100%">')
+                });
+                $('#doc_m').modal('show');
             }
         },'json');
 }
@@ -140,7 +157,7 @@ function tryInfoM(key) {
             getInfoM(id);
             break;
         case 'd':
-            console.log('doc-'+id);
+            getDocM(id);
             break;
     }
 }

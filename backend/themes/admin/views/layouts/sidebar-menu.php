@@ -21,24 +21,34 @@ echo Menu::widget(
                 'active' => Yii::$app->request->url === Yii::$app->homeUrl
             ],
             [
-                'label' => Yii::t('admin', 'Temp'),
+                'label' => Yii::t('admin', 'Ksk'),
                 'url' => '#',
                 'icon' => 'fa-question',
                 'visible' => Yii::$app->user->can('superadmin'),
+                'active' => strpos(Yii::$app->requestedRoute, 'ksk/') !== false,
                 'items' => [
                     [
                         'label' => Yii::t('admin', 'Groups'),
-                        'url' => ['/temp/group/index'],
+                        'url' => ['/ksk/group/index'],
+                        'active' => strpos(Yii::$app->requestedRoute, '/group/') !== false,
+                        'visible' => Yii::$app->user->can('superadmin'),
+                    ],
+                    [
+                        'label' => Yii::t('admin', 'Regions'),
+                        'url' => ['/ksk/region/index'],
+                        'active' => strpos(Yii::$app->requestedRoute, '/region/') !== false,
                         'visible' => Yii::$app->user->can('superadmin'),
                     ],
                     [
                         'label' => Yii::t('admin', 'Objects'),
-                        'url' => ['/temp/object/index'],
+                        'url' => ['/ksk/object/index'],
+                        'active' => strpos(Yii::$app->requestedRoute, '/object/') !== false,
                         'visible' => Yii::$app->user->can('superadmin'),
                     ],
                     [
                         'label' => Yii::t('admin', 'Objects Info'),
-                        'url' => ['/temp/object-info/index'],
+                        'url' => ['/ksk/object-info/index'],
+                        'active' => strpos(Yii::$app->requestedRoute, '/object-info/') !== false,
                         'visible' => Yii::$app->user->can('superadmin'),
                     ]
                 ]
@@ -48,20 +58,24 @@ echo Menu::widget(
                 'url' => '#',
                 'icon' => 'fa-question',
                 'visible' => Yii::$app->user->can('superadmin'),
+                'active' => strpos(Yii::$app->requestedRoute, 'parse/') !== false,
                 'items' => [
                     [
                         'label' => Yii::t('admin', 'Regions'),
-                        'url' => ['/temp/parse-region/index'],
+                        'url' => ['/parse/parse-region/index'],
+                        'active' => strpos(Yii::$app->requestedRoute, '/parse-region/') !== false,
                         'visible' => Yii::$app->user->can('superadmin'),
                     ],
                     [
                         'label' => Yii::t('admin', 'Ksk'),
-                        'url' => ['/temp/parse-ksk/index'],
+                        'url' => ['/parse/parse-ksk/index'],
+                        'active' => strpos(Yii::$app->requestedRoute, '/parse-ksk/') !== false,
                         'visible' => Yii::$app->user->can('superadmin'),
                     ],
                     [
                         'label' => Yii::t('admin', 'Otchet'),
-                        'url' => ['/temp/parse-otchet/index'],
+                        'url' => ['/parse/parse-otchet/index'],
+                        'active' => strpos(Yii::$app->requestedRoute, '/parse-otchet/') !== false,
                         'visible' => Yii::$app->user->can('superadmin'),
                     ]
                 ]

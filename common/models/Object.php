@@ -10,8 +10,10 @@ use Yii;
  * @property integer $id
  * @property string $name
  * @property integer $group_id
+ * @property integer $region_id
  *
  * @property Group $group
+ * @property Region $region
  */
 class Object extends \yii\db\ActiveRecord
 {
@@ -42,9 +44,10 @@ class Object extends \yii\db\ActiveRecord
     {
         return [
             [['name'], 'required'],
-            [['group_id'], 'integer'],
+            [['group_id', 'region_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['group_id' => 'id']],
+            [['region_id'], 'exist', 'skipOnError' => true, 'targetClass' => Region::className(), 'targetAttribute' => ['region_id' => 'id']],
         ];
     }
 
@@ -57,6 +60,7 @@ class Object extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Название объекта',
             'group_id' => 'Группа',
+            'region_id' => 'Район',
         ];
     }
 
@@ -66,5 +70,13 @@ class Object extends \yii\db\ActiveRecord
     public function getGroup()
     {
         return $this->hasOne(Group::className(), ['id' => 'group_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getRegion()
+    {
+        return $this->hasOne(Region::className(), ['id' => 'region_id']);
     }
 }

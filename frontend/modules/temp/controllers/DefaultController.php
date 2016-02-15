@@ -60,7 +60,7 @@ class DefaultController extends Controller
         if (($model = ObjectInfo::findOne(\Yii::$app->request->post('id'))) !== null) {
             return Json::encode([
                 'success' => true,
-                'data' => $model->getAttributes()
+                'info' => $model->getAttributes(),
             ]);
         }
         return Json::encode([
@@ -77,7 +77,7 @@ class DefaultController extends Controller
             }
             return Json::encode([
                 'success' => true,
-                'data' => $files
+                'files' => $files
             ]);
         }
         return Json::encode([

@@ -11,6 +11,12 @@ return [
         'temp' => [
             'class' => \backend\modules\temp\Temp::className(),
         ],
+        'parse' => [
+            'class' => \backend\modules\parse\Parse::className(),
+        ],
+        'ksk' => [
+            'class' => \backend\modules\ksk\Ksk::className(),
+        ],
         'admin' => [
             'class' => 'vova07\admin\Module'
         ],
