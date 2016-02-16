@@ -6,6 +6,7 @@ use common\models\ParseKsk;
 use common\models\ParseOtchet;
 use common\models\ParseRegion;
 use console\helpers\NokogiriHelper;
+use Yii;
 use yii\helpers\Json;
 use \yii\console\Controller;
 
@@ -423,5 +424,65 @@ class ParseController extends Controller
 
             echo "saved - {$saved}\n";
         }
+    }
+
+    public function actionUpdateReportFile()
+    {
+        $count = 0;
+        $files = 0;
+        foreach (ParseOtchet::find()->all() as $model) {
+            if ($model->type === null) {
+                $saw = new NokogiriHelper(file_get_contents($model->url_otchet));
+                $url_base = Yii::$app->basePath . "/statics/web/ksk/otchet/{$model->id}/";
+                $size = scandir($url_base);
+                $text = [];
+                foreach ($saw->get('div.post p') as $p) {
+                    if (isset($p['a'])) {
+                        foreach($p['a'] as $a) {
+                            $file = file_get_contents($a['href']);
+                            if (file_put_contents("{$url_base}/{$size}.jpg", $file) !== false) {
+                                $size ++;
+                                $modelFile = new ParseOtchetFile();
+                                $modelFile->file_name = $a['title'];
+                                $modelFile->path = "{$url_base}/{$size}.jpg";
+                                $modelFile->parse_otchet_id = $model->id;
+                                if ($modelFile->save()) {
+                                    $files ++;
+                                    echo str_pad("otchet-{$model->id}", 15).
+                                        str_pad("{$modelFile->path}", 50).
+                                        str_pad("SUCCESS", 15)."\n";
+                                } else {
+                                    echo str_pad("otchet-{$model->id}", 15).
+                                        str_pad(Json::encode($modelFile->errors), 50).
+                                        str_pad("ERROR MODEL", 15)."\n";
+                                }
+                            } else {
+                                echo str_pad("otchet-{$model->id}", 15).
+                                    str_pad("{$url_base}/{$size}.jpg", 50).
+                                    str_pad("ERROR FILE", 15)."\n";
+                            }
+                        }
+                    }
+                    $text[] = $p['#text'];
+                }
+                $model = ParseOtchet::findOne($model->id);
+                $model->text = $this->formatText($text);
+                $model->save();
+                $count ++;
+            }
+        }
+        echo "updated - {$count}\ncreated files - {$files}\n";
+    }
+
+    private function formatText($text)
+    {
+        if (is_array($text)) {
+            $result = '';
+            foreach ($text as $sub_text) {
+                $result .= $this->formatText($text).'<br>';
+            }
+            return $result;
+        }
+        return $text;
     }
 }
