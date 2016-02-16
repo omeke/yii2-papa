@@ -40,7 +40,7 @@ $this->title = 'Документы';
     </div>
 
     <div class="hidden-xs col-sm-8 col-md-9 col-lg-9">
-        <div id="info" class="hidden-xs panel panel-default">
+        <div id="info" class="hidden-xs panel panel-default" style="display: none;">
             <div class="panel-heading">Информация</div>
             <div class="panel-body">
                 <table class="table table-hover">
@@ -68,7 +68,7 @@ $this->title = 'Документы';
             </div>
         </div>
 
-        <div id="doc" class="hidden-xs panel panel-default">
+        <div id="doc" class="hidden-xs panel panel-default" style="display: none;">
             <div class="panel-heading">Документы</div>
             <div class="panel-body" id="doc_body">
             </div>
@@ -89,6 +89,7 @@ function getInfo(id) {
                 $('#address_house').html(data.info.address_house);
                 $('#fullname_chairman').html(data.info.fullname_chairman);
                 $('#phone').html(data.info.phone);
+                $('#info').show();
             }
         },'json');
 }
@@ -102,7 +103,8 @@ function getDoc(id) {
                     var path = value.substr(0,2)+'/'+value.substr(3,2)+'/'+value.substr(6,2)+'/'+value;
                     path = 'http://statics.kskauezov.kz/attachments/store/' + path;
                     console.log(path);
-                    $('#doc_body').append('<img src="'+path+'" style="width: 100%">')
+                    $('#doc_body').append('<img src="'+path+'" style="width: 100%">');
+                    $('#doc').show();
                 });
             }
         },'json');
@@ -113,9 +115,6 @@ $this->registerJS($js, \yii\web\View::POS_HEAD);
 
 $js = <<<JS
 $(document).ready(function() {
-    console.log('ready');
-    $('#info').hide();
-    $('#doc').hide();
 });
 JS;
 
