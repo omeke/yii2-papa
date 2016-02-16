@@ -27,11 +27,6 @@ $this->title = 'Документы';
                     'hideZeros' => true,
                     'hideExpanded' => true
                 ],
-                'click' => new JsExpression('function(event, data) {
-                    if (data.node.key.substr(0,1) != "i" && data.node.key.substr(0,1) != "d") {
-                        data.node.toggleExpanded();
-                    }
-                }'),
                 'activate' => new JsExpression('function(event, data) {
                     console.log(data.node.key);
                     if (data.node.key.substr(0,1) == "i") {
