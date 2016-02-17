@@ -21,6 +21,27 @@ echo Menu::widget(
                 'active' => Yii::$app->request->url === Yii::$app->homeUrl
             ],
             [
+                'label' => Yii::t('admin', 'Content'),
+                'url' => '#',
+                'icon' => 'fa-question',
+                'visible' => Yii::$app->user->can('superadmin'),
+                'active' => strpos(Yii::$app->requestedRoute, 'content/') === 0,
+                'items' => [
+                    [
+                        'label' => Yii::t('admin', 'Blog'),
+                        'url' => ['/content/blog/index'],
+                        'active' => strpos(Yii::$app->requestedRoute, '/blog/') !== false,
+                        'visible' => Yii::$app->user->can('superadmin'),
+                    ],
+                    [
+                        'label' => Yii::t('admin', 'StaticPage'),
+                        'url' => ['/content/static-page/index'],
+                        'active' => strpos(Yii::$app->requestedRoute, '/static-page/') !== false,
+                        'visible' => Yii::$app->user->can('superadmin'),
+                    ],
+                ]
+            ],
+            [
                 'label' => Yii::t('admin', 'Guest'),
                 'url' => '#',
                 'icon' => 'fa-question',

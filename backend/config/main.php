@@ -20,6 +20,9 @@ return [
         'guest' => [
             'class' => \backend\modules\guest\Guest::className(),
         ],
+        'content' => [
+            'class' => \backend\modules\content\Content::className(),
+        ],
         'admin' => [
             'class' => 'vova07\admin\Module'
         ],

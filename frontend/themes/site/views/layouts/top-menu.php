@@ -23,9 +23,13 @@ echo Menu::widget(
                 'url' => ['/temp/default/contact']
             ],
             [
-                'label' => 'Лента новостей',
-                'url' => ['/blogs/default/index']
+                'label' => 'Полезная информация',
+                'url' => ['/temp/default/temp']
             ],
+//            [
+//                'label' => 'Лента новостей',
+//                'url' => ['/blogs/default/index']
+//            ],
 
 //            [
 //                'label' => Yii::t('site', 'Blogs'),

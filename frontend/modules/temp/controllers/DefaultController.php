@@ -15,6 +15,11 @@ use yii\web\Controller;
  */
 class DefaultController extends Controller
 {
+    public function actionTemp()
+    {
+        return $this->render('temp');
+    }
+
     /**
      * Renders the index view for the module
      * @return string

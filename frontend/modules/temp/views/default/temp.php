@@ -1,3 +1,9 @@
+<?php
+
+$this->title = 'Полезная информация';
+
+?>
+
 <div class="container">
     <div class="col-md-12">
         <h1 class="page-header text-center">
@@ -51,7 +57,7 @@
         </div>
         <div class="col-md-6">
             <a href="http://akyl.kz/page/show/name/osn_p"><img class="img-responsive"
-                                                               src="img/concepts.gif" alt=""></a>
+                                                               src="/img/concepts.gif" alt=""></a>
             <a href="http://akyl.kz/page/show/name/osn_p"><b>Основные понятия</b></a>
 
             <p>коммунальные услуги, кондоминиум, объект кондоминиума, собрание участников объекта кондоминиума,
