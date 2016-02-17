@@ -81,50 +81,36 @@ $this->title = 'Контакты';
 
     </style>
 
-    <ul class="other-info list-unstyled col-md-4 col-sm-5 col-xs-12">
-        <li><i class="glyphicon glyphicon-send button" data-toggle="modal" data-target="#contact_us"></i>
-            <a href="#" data-toggle="modal" data-target="#contact_us">Отправить сообщение</a></li>
-        <li><i class="glyphicon glyphicon-envelope button"></i><a href="mailto:ksk_auezov@mail.ru">ksk_auezov@mail.ru</a></li>
-        <li><i class="glyphicon glyphicon-earphone"></i>
-            <a href="tel:+77013508558">+7(701)350-85-58</a></li>
-        <li><i class="glyphicon glyphicon-map-marker"></i>Респубика Казахстан,<br> город Алматы,<br> улица
-            Алтынсарина,23
-        </li>
-    </ul>
-    <div class="col-md-8 col-sm-7 col-xs-12">
-        <div id="map" style="width: 100%; height: 300px"></div>
-    </div>
+<!--    <ul class="other-info list-unstyled col-md-4 col-sm-5 col-xs-12">-->
+<!--        <li><i class="glyphicon glyphicon-send button" data-toggle="modal" data-target="#contact_us"></i>-->
+<!--            <a href="#" data-toggle="modal" data-target="#contact_us">Отправить сообщение</a></li>-->
+<!--        <li><i class="glyphicon glyphicon-envelope button"></i><a href="mailto:ksk_auezov@mail.ru">ksk_auezov@mail.ru</a></li>-->
+<!--        <li><i class="glyphicon glyphicon-earphone"></i>-->
+<!--            <a href="tel:+77013508558">+7(701)350-85-58</a></li>-->
+<!--        <li><i class="glyphicon glyphicon-map-marker"></i>Респубика Казахстан,<br> город Алматы,<br> улица-->
+<!--            Алтынсарина,23-->
+<!--        </li>-->
+<!--    </ul>-->
 
 <?php $form = \yii\bootstrap\ActiveForm::begin(); ?>
-    <div class="modal fade" id="contact_us" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Отправить сообщение</h4>
-                </div>
-                <div class="modal-body">
-                    <?= $form->field($model, 'name')
-                        ->textInput(['placeholder' => $model->getAttributeLabel('name')])->label(false) ?>
-                    <?= $form->field($model, 'email')
-                        ->textInput(['placeholder' => $model->getAttributeLabel('email')])->label(false) ?>
-                    <?= $form->field($model, 'message')
-                        ->textarea(['rows' => 6, 'placeholder' => $model->getAttributeLabel('message')])
-                        ->label(false) ?>
-                </div>
-                <div class="modal-footer">
-                    <div class="form-group">
-                        <?= \yii\bootstrap\Html::submitButton('Отправить сообщение',
-                            ['class' => 'btn btn-success']) ?>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-                    </div>
-                </div>
-            </div>
-            <!-- /.modal-content -->
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <h4>Отправить сообщение</h4>
+        <?= $form->field($model, 'name')
+            ->textInput(['placeholder' => $model->getAttributeLabel('name')])->label(false) ?>
+        <?= $form->field($model, 'email')
+            ->textInput(['placeholder' => $model->getAttributeLabel('email')])->label(false) ?>
+        <?= $form->field($model, 'message')
+            ->textarea(['rows' => 6, 'placeholder' => $model->getAttributeLabel('message')])
+            ->label(false) ?>
+        <div class="form-group">
+            <?= \yii\bootstrap\Html::submitButton('Отправить сообщение',
+                ['class' => 'btn btn-success']) ?>
         </div>
-        <!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+    </div>
+
+    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+        <div id="map" style="width: 100%; height: 300px"></div>
+    </div>
 <?php \yii\bootstrap\ActiveForm::end(); ?>
 
 <?php
