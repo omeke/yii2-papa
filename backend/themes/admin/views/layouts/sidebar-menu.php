@@ -92,6 +92,12 @@ echo Menu::widget(
                         'url' => ['/parse/parse-otchet/index'],
                         'active' => strpos(Yii::$app->requestedRoute, '/parse-otchet/') !== false,
                         'visible' => Yii::$app->user->can('superadmin'),
+                    ],
+                    [
+                        'label' => Yii::t('admin', 'File'),
+                        'url' => ['/parse/parse-otchet-file/index'],
+                        'active' => strpos(Yii::$app->requestedRoute, '/parse-otchet-file/') !== false,
+                        'visible' => Yii::$app->user->can('superadmin'),
                     ]
                 ]
             ],

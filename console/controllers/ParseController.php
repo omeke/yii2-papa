@@ -4,6 +4,7 @@ namespace console\controllers;
 
 use common\models\ParseKsk;
 use common\models\ParseOtchet;
+use common\models\ParseOtchetFile;
 use common\models\ParseRegion;
 use console\helpers\NokogiriHelper;
 use Yii;
@@ -428,20 +429,23 @@ class ParseController extends Controller
 
     public function actionUpdateReportFile()
     {
+        return;
+        $this->checkPath();
         $count = 0;
         $files = 0;
-        foreach (ParseOtchet::find()->all() as $model) {
-            if ($model->type === null) {
+        foreach (ParseOtchet::find()->limit(10)->all() as $model) {
+            if (ParseOtchetFile::findOne(['parse_otchet_id' => $model->id]) === null && $model->url_otchet !== null && $model->text === null) {
                 $saw = new NokogiriHelper(file_get_contents($model->url_otchet));
-                $url_base = Yii::$app->basePath . "/statics/web/ksk/otchet/{$model->id}/";
-                $size = scandir($url_base);
                 $text = [];
                 foreach ($saw->get('div.post p') as $p) {
                     if (isset($p['a'])) {
                         foreach($p['a'] as $a) {
+                            echo $a['href']."\n\n";
                             $file = file_get_contents($a['href']);
+                            $url_base = "C:/OpenServer/domains/yii2-papa/statics/web/ksk/otchet/{$model->id}";
+                            $this->checkPath($url_base);
+                            $size = sizeof(scandir($url_base));
                             if (file_put_contents("{$url_base}/{$size}.jpg", $file) !== false) {
-                                $size ++;
                                 $modelFile = new ParseOtchetFile();
                                 $modelFile->file_name = $a['title'];
                                 $modelFile->path = "{$url_base}/{$size}.jpg";
@@ -463,8 +467,10 @@ class ParseController extends Controller
                             }
                         }
                     }
-                    $text[] = $p['#text'];
+
+                    !isset($p['#text']) ?: $text[] = $p['#text'];
                 }
+
                 $model = ParseOtchet::findOne($model->id);
                 $model->text = $this->formatText($text);
                 $model->save();
@@ -474,12 +480,25 @@ class ParseController extends Controller
         echo "updated - {$count}\ncreated files - {$files}\n";
     }
 
+    private function checkPath($url_base = null)
+    {
+        if ($url_base === null) $url_base = 'C:/OpenServer/domains/yii2-papa/statics/web/ksk/otchet/';
+        if (!file_exists($url_base)) {
+            echo $url_base."\n";
+            if (!mkdir($url_base, 0774, true)) {
+                echo "Fail on create directory\n";
+            } else {
+                echo "The directory was successfully created.\n";
+            }
+        }
+    }
+
     private function formatText($text)
     {
         if (is_array($text)) {
             $result = '';
             foreach ($text as $sub_text) {
-                $result .= $this->formatText($text).'<br>';
+                $result .= $this->formatText($sub_text).'<br>';
             }
             return $result;
         }
