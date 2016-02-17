@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "blog".
@@ -19,6 +21,22 @@ use Yii;
  */
 class Blog extends \yii\db\ActiveRecord
 {
+    const STATUS_OFF = 0;
+    const STATUS_ON = 1;
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'value' => new Expression('NOW()'),
+            ]
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -33,7 +51,7 @@ class Blog extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'short_text', 'text', 'created_at', 'updated_at'], 'required'],
+            [['title', 'short_text', 'text'], 'required'],
             [['short_text', 'text'], 'string'],
             [['views', 'status'], 'integer'],
             [['published_at', 'created_at', 'updated_at'], 'safe'],
@@ -58,4 +76,47 @@ class Blog extends \yii\db\ActiveRecord
             'updated_at' => 'Дата изменения',
         ];
     }
+
+    public static function statusNames()
+    {
+        return [
+            null => '(не указан)',
+            self::STATUS_ON => 'Опубликован',
+            self::STATUS_OFF => 'Скрыт'
+        ];
+    }
+
+    public static function statusClasses()
+    {
+        return [
+            null => 'default',
+            self::STATUS_OFF => 'danger',
+            self::STATUS_ON => 'success'
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($this->status === self::STATUS_ON) {
+                $this->published_at = date('Y-m-d H:i:s');
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public function on() {
+        $this->status = self::STATUS_ON;
+        return $this->save();
+    }
+
+    public function off() {
+        $this->status = self::STATUS_OFF;
+        return $this->save();
+    }
+
 }

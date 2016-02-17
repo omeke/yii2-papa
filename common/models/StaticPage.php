@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "static_page".
@@ -21,6 +23,19 @@ class StaticPage extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'value' => new Expression('NOW()'),
+            ]
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public static function tableName()
     {
         return 'static_page';
@@ -32,7 +47,7 @@ class StaticPage extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'text', 'created_at', 'updated_at'], 'required'],
+            [['title', 'text'], 'required'],
             [['text'], 'string'],
             [['views', 'status'], 'integer'],
             [['published_at', 'created_at', 'updated_at'], 'safe'],

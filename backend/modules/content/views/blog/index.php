@@ -34,7 +34,24 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {on} {off}',
+                'buttons' => [
+                    'on' => function($url, $model) {
+                        if ($model->status === \common\models\Blog::STATUS_OFF) {
+                            return Html::a('<span class="glyphicon glyphicon-ok"></span>', $url);
+                        }
+                        return '';
+                    },
+                    'off' => function ($url, $model) {
+                        if ($model->status === \common\models\Blog::STATUS_ON) {
+                            return Html::a('<span class="glyphicon glyphicon-remove"></span>', $url);
+                        }
+                        return '';
+                    }
+                ]
+            ],
         ],
     ]); ?>
 </div>

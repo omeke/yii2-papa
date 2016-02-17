@@ -5,6 +5,7 @@ namespace backend\modules\content\controllers;
 use Yii;
 use common\models\Blog;
 use backend\modules\content\models\BlogSearch;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -20,10 +21,14 @@ class BlogController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'only' => ['index', 'create', 'update', 'view', 'on', 'off'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['superadmin'],
+                    ],
                 ],
             ],
         ];
@@ -68,6 +73,7 @@ class BlogController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            Yii::$app->session->setFlash('info', Json::encode($model->errors));
             return $this->render('create', [
                 'model' => $model,
             ]);
@@ -93,15 +99,16 @@ class BlogController extends Controller
         }
     }
 
-    /**
-     * Deletes an existing Blog model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
+    public function actionOn($id)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($id)->on();
+
+        return $this->redirect(['index']);
+    }
+
+    public function actionOff($id)
+    {
+        $this->findModel($id)->off();
 
         return $this->redirect(['index']);
     }

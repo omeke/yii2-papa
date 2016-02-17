@@ -20,6 +20,16 @@ class StaticPageController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'only' => ['index', 'create', 'update', 'view', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['superadmin'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

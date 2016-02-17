@@ -14,8 +14,8 @@ class m160217_142011_create_static_page_and_blog extends Migration
             'views' => Schema::TYPE_INTEGER . " NOT NULL DEFAULT 0 COMMENT 'Промотры'",
             'status' => Schema::TYPE_SMALLINT . " NOT NULL DEFAULT 0 COMMENT 'Статус'",
             'published_at' => Schema::TYPE_DATETIME . " NULL COMMENT 'Публикация'",
-            'created_at' => Schema::TYPE_DATETIME . " NOT NULL COMMENT 'Дата создания'",
-            'updated_at' => Schema::TYPE_DATETIME . " NOT NULL COMMENT 'Дата изменения'"
+            'created_at' => Schema::TYPE_DATETIME . " NULL COMMENT 'Дата создания'",
+            'updated_at' => Schema::TYPE_DATETIME . " NULL COMMENT 'Дата изменения'"
         ], 'ENGINE InnoDB');
 
         $this->createTable('blog', [
@@ -26,8 +26,8 @@ class m160217_142011_create_static_page_and_blog extends Migration
             'views' => Schema::TYPE_INTEGER . " NOT NULL DEFAULT 0 COMMENT 'Промотры'",
             'status' => Schema::TYPE_SMALLINT . " NOT NULL DEFAULT 0 COMMENT 'Статус'",
             'published_at' => Schema::TYPE_DATETIME . " NULL COMMENT 'Публикация'",
-            'created_at' => Schema::TYPE_DATETIME . " NOT NULL COMMENT 'Дата создания'",
-            'updated_at' => Schema::TYPE_DATETIME . " NOT NULL COMMENT 'Дата изменения'"
+            'created_at' => Schema::TYPE_DATETIME . " NULL COMMENT 'Дата создания'",
+            'updated_at' => Schema::TYPE_DATETIME . " NULL COMMENT 'Дата изменения'"
         ], 'ENGINE InnoDB');
     }
 
